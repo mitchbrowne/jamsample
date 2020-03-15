@@ -4,7 +4,7 @@ class CreateSamples < ActiveRecord::Migration[5.2]
       t.text :title
       t.text :audio_file
       t.text :image
-      t.text :type
+      t.text :sample_type
       t.integer :collection_id
 
       t.timestamps

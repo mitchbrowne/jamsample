@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_03_15_075418) do
     t.text "title"
     t.text "audio_file"
     t.text "image"
-    t.text "type"
+    t.text "sample_type"
     t.integer "collection_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
