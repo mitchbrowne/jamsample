@@ -7,6 +7,11 @@
     <%= genre.name %>
   <% end %>
 </p>
-<p>Collection: <%= @sample.collection.name %></p>
+<p>Collection: <%= @sample.collection.name unless @sample.collection.name.nil? %></p>
 <p>Audio File: <%= @sample.audio_file %></p>
 <p>Image: <%= @sample.image %></p>
+
+<div class="sample_controls">
+  <%= link_to "Edit Sample", edit_sample_path(@sample) %>
+  <%= link_to "Delete Sample", @sample, :method => 'delete' %>
+</div>

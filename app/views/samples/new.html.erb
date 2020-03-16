@@ -1,31 +1,3 @@
 <h1>New Sample</h1>
 
-<%= form_for @sample do |f| %>
-  <fieldset>
-    <%= f.label :title %>
-    <%= f.text_field :title, :required => true %>
-  </fieldset>
-
-  <fieldset>
-    <%= f.label :audio_file %>
-    <%= f.url_field :audio_file, :required => true %>
-  </fieldset>
-
-  <fieldset>
-    <%= f.label :image %>
-    <%= f.url_field :image %>
-  </fieldset>
-
-  <fieldset>
-    <%= f.label :sample_type %>
-    <%= f.select :sample_type, options_for_select(["Loop", "Riff", "Lyrics"]), :include_blank => true %>
-  </fieldset>
-
-  <fieldset>
-    <%= f.label :collection_id %>
-    <%= f.select :collection_id, @collections.pluck(:name, :id), :include_blank => true %>
-  </fieldset>
-
-  <%= f.submit %>
-
-<% end %>
+<%= render :partial => 'form' %>

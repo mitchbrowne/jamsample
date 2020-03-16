@@ -21,6 +21,14 @@ class SamplesController < ApplicationController
   end
 
   def edit
+    @sample = Sample.find params[:id]
+    @collections = @current_user.collections
+  end
+
+  def update
+    sample = Sample.find params[:id]
+    sample.update sample_params
+    redirect_to sample_path
   end
 
   def destroy
