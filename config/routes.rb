@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
 
   resources :collections, :only => [:new, :create, :index, :show]
+  resources :samples, :only => [:new, :create, :index, :show]
 end
