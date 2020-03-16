@@ -1,5 +1,9 @@
 <h1><%= @collection.name %> Collection</h1>
 
+<% if flash[:error].present? %>
+  <h3><%= flash[:error] %></h3>
+<% end %>
+
 <% @collection.samples.each do |sample| %>
   <p><%= sample.title %></p>
 <% end %>

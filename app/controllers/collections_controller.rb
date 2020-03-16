@@ -8,7 +8,7 @@ class CollectionsController < ApplicationController
   def create
     collection = Collection.create collection_params
     @current_user.collections << collection
-    redirect_to collections_path
+    redirect_to collection_path(collection)
   end
 
   def show
@@ -30,9 +30,18 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
+    flash.now[:notice] = "YOOO"
     collection = Collection.find params[:id]
-    collection.destroy
-    redirect_to collections_path
+    if collection.samples.present?
+      flash[:error] = "Cannot delete collection if collection holds samples."
+      # flash.now[:notice] = "Cannot delete collection while collection holds samples"
+      redirect_to collection_path
+    else
+      flash.alert = "you"
+      collection.destroy
+      redirect_to collections_path
+    end
+
   end
 
   private
