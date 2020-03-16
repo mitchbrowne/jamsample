@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_03_15_233829) do
   create_table "samples", force: :cascade do |t|
     t.text "title"
     t.text "audio_file"
-    t.text "image"
+    t.text "image", default: "https://st.depositphotos.com/1742172/2007/v/950/depositphotos_20077185-stock-illustration-cartoon-music-note.jpg"
     t.text "sample_type"
     t.integer "collection_id"
     t.datetime "created_at", null: false
