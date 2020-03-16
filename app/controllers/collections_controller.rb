@@ -20,6 +20,13 @@ class CollectionsController < ApplicationController
   end
 
   def edit
+    @collection = Collection.find params[:id]
+  end
+
+  def update
+    collection = Collection.find params[:id]
+    collection.update collection_params
+    redirect_to collection_path
   end
 
   private
