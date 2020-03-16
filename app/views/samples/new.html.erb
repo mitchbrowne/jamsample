@@ -8,17 +8,22 @@
 
   <fieldset>
     <%= f.label :audio_file %>
-    <%= f.text_field :audio_file, :required => true %>
-  </fieldset>
-
-  <fieldset>
-    <%= f.label :sample_type %>
-    <%= f.url_field :sample_type %>
+    <%= f.url_field :audio_file, :required => true %>
   </fieldset>
 
   <fieldset>
     <%= f.label :image %>
     <%= f.url_field :image %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :sample_type %>
+    <%= f.select :sample_type, options_for_select(["Loop", "Riff", "Lyrics"]), :include_blank => true %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :collection_id %>
+    <%= f.select :collection_id, @collections.pluck(:name, :id), :include_blank => true %>
   </fieldset>
 
   <%= f.submit %>
