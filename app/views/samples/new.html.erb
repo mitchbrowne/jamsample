@@ -26,12 +26,6 @@
     <%= f.select :collection_id, @collections.pluck(:name, :id), :include_blank => true %>
   </fieldset>
 
-  <fieldset>
-    <%= f.label :genres %>
-    <%= f.select :genres, @genres.pluck(:name, :id), :include_blank => true %>
-    <%= f.select :genres, @genres.pluck(:name, :id), :include_blank => true %>
-  </fieldset>
-
   <%= f.submit %>
 
 <% end %>
