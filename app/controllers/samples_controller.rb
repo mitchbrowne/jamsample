@@ -32,7 +32,9 @@ class SamplesController < ApplicationController
   end
 
   def destroy
-
+    sample = Sample.find params[:id]
+    sample.destroy
+    redirect_to samples_path
   end
 
   private
