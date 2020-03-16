@@ -14,4 +14,12 @@ class ApplicationController < ActionController::Base
   def check_for_admin
     redirect_to root_path unless @current_user.present? && @current_user.admin?
   end
+
+  def check_for_collection # checks if user owns collection
+    redirect_to collections_path unless @current_user.collections.include?(@collection)
+  end
+
+  def check_for_sample # checks if user owns sample
+    redirect_to samples_path unless @current_user.samples.include?(@sample)
+  end
 end

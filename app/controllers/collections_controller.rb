@@ -13,6 +13,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find params[:id]
+    check_for_collection
   end
 
   def index
@@ -21,6 +22,7 @@ class CollectionsController < ApplicationController
 
   def edit
     @collection = Collection.find params[:id]
+    check_for_collection
   end
 
   def update
@@ -30,14 +32,11 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    flash.now[:notice] = "YOOO"
     collection = Collection.find params[:id]
     if collection.samples.present?
       flash[:error] = "Cannot delete collection if collection holds samples."
-      # flash.now[:notice] = "Cannot delete collection while collection holds samples"
       redirect_to collection_path
     else
-      flash.alert = "you"
       collection.destroy
       redirect_to collections_path
     end
