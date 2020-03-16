@@ -1,2 +1,9 @@
-<h1>Samples#index</h1>
-<p>Find me in app/views/samples/index.html.erb</p>
+<h1>Your Samples</h1>
+
+<% @samples.each do |sample| %>
+  <p><%= sample.title %></p>
+<% end %>
+
+<div class="sample_controls">
+  <%= link_to "Add Sample", new_sample_path %>
+</div>

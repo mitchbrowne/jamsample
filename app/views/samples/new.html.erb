@@ -1,2 +1,26 @@
-<h1>Samples#new</h1>
-<p>Find me in app/views/samples/new.html.erb</p>
+<h1>New Sample</h1>
+
+<%= form_for @sample do |f| %>
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title, :required => true %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :audio_file %>
+    <%= f.text_field :audio_file, :required => true %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :sample_type %>
+    <%= f.url_field :sample_type %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :image %>
+    <%= f.url_field :image %>
+  </fieldset>
+
+  <%= f.submit %>
+
+<% end %>
