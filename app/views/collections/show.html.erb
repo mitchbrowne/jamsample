@@ -9,6 +9,6 @@
 <% end %>
 
 <div class="collection_controls">
-  <%= link_to "Edit Collection", edit_collection_path(@collection) %>
-  <%= link_to "Delete Collection", @collection, :method => 'delete' %>
+  <%= link_to "Edit Collection", edit_collection_path(@collection) if @current_user.collections.include?(@collection)%>
+  <%= link_to "Delete Collection", @collection, :method => 'delete' if @current_user.collections.include?(@collection)%>
 </div>
