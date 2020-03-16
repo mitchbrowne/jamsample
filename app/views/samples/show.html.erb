@@ -1,6 +1,12 @@
 <h1><%= @sample.title %></h1>
 
 <p>Sample Type: <%= @sample.sample_type %></p>
+<p>
+  Genre:
+  <% @sample.genres.each do |genre| %>
+    <%= genre.name %>
+  <% end %>
+</p>
 <p>Collection: <%= @sample.collection.name %></p>
 <p>Audio File: <%= @sample.audio_file %></p>
 <p>Image: <%= @sample.image %></p>

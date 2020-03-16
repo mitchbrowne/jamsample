@@ -7,6 +7,7 @@ class SamplesController < ApplicationController
 
   def new
     @sample = Sample.new
+    @genres = Genre.all
     @collections = @current_user.collections
   end
 
