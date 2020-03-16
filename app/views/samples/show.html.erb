@@ -12,6 +12,6 @@
 <p>Image: <%= @sample.image %></p>
 
 <div class="sample_controls">
-  <%= link_to "Edit Sample", edit_sample_path(@sample) %>
-  <%= link_to "Delete Sample", @sample, :method => 'delete' %>
+  <%= link_to "Edit Sample", edit_sample_path(@sample) if @current_user.samples.include?(@sample)%>
+  <%= link_to "Delete Sample", @sample, :method => 'delete' if @current_user.samples.include?(@sample)%>
 </div>
