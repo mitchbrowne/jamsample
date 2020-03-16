@@ -12,7 +12,6 @@
 <p>Image: <%= @sample.image %></p>
 
 <div class="sample_controls">
-  <%= link_to "Back", samples_path %>
   <%= link_to "Edit Sample", edit_sample_path(@sample) %>
   <%= link_to "Delete Sample", @sample, :method => 'delete' %>
 </div>
