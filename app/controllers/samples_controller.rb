@@ -2,7 +2,7 @@ class SamplesController < ApplicationController
   before_action :check_for_login
 
   def index
-    @samples = @current_user.samples
+    @samples = @current_user.samples.order(:created_at)
   end
 
   def new
