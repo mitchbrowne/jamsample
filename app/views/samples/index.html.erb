@@ -1,7 +1,7 @@
 <h1>Your Samples</h1>
 
 <% @samples.each do |sample| %>
-  <p><%= sample.title %></p>
+  <p><%= link_to sample.title, sample_path(sample.id) %></p>
 <% end %>
 
 <div class="sample_controls">

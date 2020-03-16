@@ -1,2 +1,6 @@
-<h1>Samples#show</h1>
-<p>Find me in app/views/samples/show.html.erb</p>
+<h1><%= @sample.title %></h1>
+
+<p>Sample Type: <%= @sample.sample_type %></p>
+<p>Collection: <%= @sample.collection.name %></p>
+<p>Audio File: <%= @sample.audio_file %></p>
+<p>Image: <%= @sample.image %></p>
