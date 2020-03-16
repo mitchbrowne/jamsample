@@ -1,2 +1,11 @@
-<h1>Collections#new</h1>
-<p>Find me in app/views/collections/new.html.erb</p>
+<h1>New Collection</h1>
+
+<%= form_for @collection do |f| %>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
+  </fieldset>
+
+  <%= f.submit %>
+
+<% end %>

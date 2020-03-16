@@ -5,6 +5,12 @@ class CollectionsController < ApplicationController
     @collection = Collection.new
   end
 
+  def create
+    collection = Collection.create collection_params
+    @current_user.collections << collection
+    redirect_to collections_path
+  end
+
   def show
     @collection = Collection.find params[:id]
   end
@@ -14,5 +20,10 @@ class CollectionsController < ApplicationController
   end
 
   def edit
+  end
+
+  private
+  def collection_params
+    params.require(:collection).permit(:name, :user_id)
   end
 end
