@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
+
+  resources :collections, :only => [:new, :create, :index]
 end
