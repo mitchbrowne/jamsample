@@ -8,6 +8,10 @@
   <p><%= link_to sample.title, sample_path(sample.id) %></p>
 <% end %>
 
+<div class="collection_add">
+
+</div>
+
 <div class="collection_controls">
   <%= link_to "Edit Collection", edit_collection_path(@collection) if @current_user.collections.include?(@collection)%>
   <%= link_to "Delete Collection", @collection, :method => 'delete' if @current_user.collections.include?(@collection)%>

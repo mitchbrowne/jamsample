@@ -13,7 +13,6 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find params[:id]
-    # check_for_collection
   end
 
   def index

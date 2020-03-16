@@ -18,7 +18,6 @@ class SamplesController < ApplicationController
 
   def show
     @sample = Sample.find params[:id]
-    # check_for_sample
   end
 
   def edit

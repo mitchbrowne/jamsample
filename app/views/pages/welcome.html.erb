@@ -4,4 +4,5 @@
   <%= link_to image_tag(sample.image, :class => 'feature', :alt => "#{sample.title}"), sample %>
   <p><%= link_to sample.title, sample %></p>
   <p><%= link_to sample.collection.name, sample.collection %></p>
+  <p><%= sample.created_at %></p>
 <% end %>
