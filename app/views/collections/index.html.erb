@@ -1,5 +1,5 @@
 <h1>Your Collections</h1>
 
 <% @collections.each do |collection| %>
-  <p><%= collection.name %></p>
+  <p><%= link_to collection.name, collection_path(collection.id) %></p>
 <% end %>
