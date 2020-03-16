@@ -29,6 +29,12 @@ class CollectionsController < ApplicationController
     redirect_to collection_path
   end
 
+  def destroy
+    collection = Collection.find params[:id]
+    collection.destroy
+    redirect_to collections_path
+  end
+
   private
   def collection_params
     params.require(:collection).permit(:name, :user_id)
