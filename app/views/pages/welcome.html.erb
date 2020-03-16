@@ -1,5 +1,6 @@
 <h1>Marketplace</h1>
 
 <% @samples.each do |sample| %>
+  <%= link_to image_tag(sample.image, :class => 'feature', :alt => "#{sample.title}"), sample %>
   <p><%= sample.title %></p>
 <% end %>
