@@ -39,7 +39,11 @@ class CollectionsController < ApplicationController
       collection.destroy
       redirect_to collections_path
     end
+  end
 
+  def add_sample
+    @collection = Collection.find params[:id]
+    @samples = @current_user.samples
   end
 
   private
