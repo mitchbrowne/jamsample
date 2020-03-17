@@ -1,1 +1,15 @@
 <h1>Settings</h1>
+
+<%= form_for @user do |f| %>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :email %>
+    <%= f.text_field :email, :required => true %>
+  </fieldset>
+
+  <%= f.submit %>
+<% end %>

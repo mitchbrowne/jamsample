@@ -29,7 +29,10 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    # test for uniqueness
+    user = @current_user
+    user.update user_params
+    redirect_to user
   end
 
   private
