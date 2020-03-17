@@ -2,15 +2,24 @@
 
 <div class="sample_container">
 
-  <div id="bg">
+<div class="sample_playerOne_container">
+  <!-- <div id="bg">
     <div id="blackLayer"></div>
     <img src="https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Poster1.jpg"/>
+  </div> -->
+
+  <div class="player_container">
+    <div class="album_image_container">
+      <img class="album_image" src="<%= @sample.image %>" alt="album cover">
+    </div>
+
   </div>
 
-  <div id="main">
+  <!-- <div id="main">
     <div id="image">
-      <img src="https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Poster1.jpg"/>
+      <img src="<%= @sample.image %>"/>
     </div>
+
     <div id="player">
       <div id="songTitle"><%= @sample.title %></div>
       <div id="buttons">
@@ -24,9 +33,12 @@
         <div id="handle"></div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-<div class="sample_detail_container">
+</div>
+
+
+<!-- <div class="sample_detail_container">
 
   <p>Artist: <%= @sample.user.name %></p>
 
@@ -46,6 +58,6 @@
     <%= link_to "Edit Sample", edit_sample_path(@sample) if @current_user.samples.include?(@sample)%>
     <%= link_to "Delete Sample", @sample, :method => 'delete' if @current_user.samples.include?(@sample)%>
   </div>
-</div>
+</div> -->
 
 </div>

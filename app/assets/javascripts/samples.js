@@ -52,10 +52,4 @@ $('#pre').click(function() {
 
 
 
-
-
-
-
-
-
 });

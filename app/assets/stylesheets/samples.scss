@@ -1,6 +1,46 @@
 // Place all the styles related to the Samples controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  background-color: #f0f39c;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f39c;
+
+}
+
+.sample_playerOne_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_container {
+  position: relative;
+  height: 25em;
+  width: 40em;
+  background-color: white;
+  box-shadow: 0 15px 23px rgba(0,0,0, 0.2);
+}
+
+.album_image_container {
+  height: 20em;
+  width: 20em;
+  position: absolute;
+  top: 10%;
+  right: -10%;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.4);
+}
+
+.album_image {
+  height: inherit;
+  position: relative;
+  width: inherit;
+}
+
 .sample_container {
   display: flex;
   flex-direction: column;
