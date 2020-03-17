@@ -11,7 +11,7 @@
 </p>
 <p>Collection: <%= link_to @sample.collection.name, @sample.collection unless @sample.collection.nil? %></p>
 <p>Audio File: <%= @sample.audio_file %></p>
-<p>Image: <%= @sample.image %></p>
+<p><%= cl_image_tag @sample.image, :width => 250 %></p>
 <p>Created At: <%= @sample.created_at.strftime '%l:%M %P, %B %e, %Y' %></p>
 
 <div class="sample_controls">

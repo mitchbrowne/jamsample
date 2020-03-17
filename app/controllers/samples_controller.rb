@@ -13,8 +13,13 @@ class SamplesController < ApplicationController
 
   def create
     sample = Sample.create sample_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      sample.image = req["public_id"]
+    end
+    sample.save
     @current_user.samples << sample
-    redirect_to samples_path
+    redirect_to sample
   end
 
   def show
@@ -29,13 +34,18 @@ class SamplesController < ApplicationController
 
   def update
     sample = Sample.find params[:id]
+    sample.update sample_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      sample.image = req["public_id"]
+    end
     sample.genres = []
     unless params[:sample][:genre_ids].nil?
       params[:sample][:genre_ids].each do |genre_id|
         sample.genres << Genre.find(genre_id) unless genre_id.empty?
       end
     end
-    sample.update sample_params
+    sample.save
 
     redirect_to sample_path
   end
@@ -48,6 +58,6 @@ class SamplesController < ApplicationController
 
   private
   def sample_params
-    params.require(:sample).permit(:title, :audio_file, :image, :sample_type, :collection_id, :genre_ids)
+    params.require(:sample).permit(:title, :audio_file, :sample_type, :collection_id, :genre_ids)
   end
 end
