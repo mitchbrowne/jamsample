@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :check_for_login
 
-  def welcome
+  def marketplace
     @users = User.all
     samples = []
       Sample.all.each do |sample|
