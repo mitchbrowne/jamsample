@@ -12,14 +12,23 @@ class SamplesController < ApplicationController
   end
 
   def create
-    sample = Sample.create sample_params
-    if params[:file].present?
-      req = Cloudinary::Uploader.upload(params[:file])
-      sample.image = req["public_id"]
+    @genres = Genre.all
+    @collections = @current_user.collections
+
+    @sample = Sample.new sample_params
+
+    if @current_user.samples.exists?(:title => sample_params[:title])
+      flash[:error] = "Title already exists."
+      render :new
+    else
+      if params[:file].present?
+        req = Cloudinary::Uploader.upload(params[:file])
+        @sample.image = req["public_id"]
+      end
+      @sample.save
+      @current_user.samples << @sample
+      redirect_to sample_path(@sample)
     end
-    sample.save
-    @current_user.samples << sample
-    redirect_to sample
   end
 
   def show

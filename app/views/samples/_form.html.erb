@@ -1,5 +1,8 @@
-<%= form_for(@sample, :html => {:multipart => true})do |f| %>
+<% if flash[:error].present? %>
+  <h2><%= flash[:error] %></h2>
+<% end %>
 
+<%= form_for(@sample, :html => {:multipart => true})do |f| %>
   <fieldset>
     <%= f.label :title %>
     <%= f.text_field :title, :required => true %>
