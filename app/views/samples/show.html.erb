@@ -1,6 +1,6 @@
 <h1><%= @sample.title %></h1>
 
-<p>Artist: <%= @sample.collection.user.email %></p>
+<p>Artist: <%= @sample.user.email %></p>
 
 <p>Sample Type: <%= @sample.sample_type %></p>
 <p>
@@ -9,7 +9,7 @@
     <%= genre.name %>
   <% end %>
 </p>
-<p>Collection: <%= @sample.collection.name unless @sample.collection.name.nil? %></p>
+<p>Collection: <%= @sample.collection.name unless @sample.collection.nil? %></p>
 <p>Audio File: <%= @sample.audio_file %></p>
 <p>Image: <%= @sample.image %></p>
 
