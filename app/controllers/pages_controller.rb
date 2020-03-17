@@ -10,16 +10,4 @@ class PagesController < ApplicationController
     samples.sort_by! {|sample| sample.updated_at}
     @samples = samples.reverse!
   end
-
-  #   samples = []
-  #   @users.each do |user|
-  #     user.collections.each do |collection|
-  #       collection.samples.each do |sample|
-  #         samples.append(sample)
-  #       end
-  #     end
-  #   end
-  #   samples.sort_by! {|sample| sample.created_at}
-  #   @samples = samples.reverse!
-  # end
 end
