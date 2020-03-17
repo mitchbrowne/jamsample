@@ -24,5 +24,10 @@
     <%= f.password_field :password_confirmation, :required => true %>
   </fieldset>
 
+  <fieldset>
+    <%= f.label :name, "Artist Name" %>
+    <%= f.text_field :name %>
+  </fieldset>
+
   <%= f.submit 'Sign Up' %>
 <% end %>

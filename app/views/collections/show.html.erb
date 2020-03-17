@@ -1,5 +1,7 @@
 <h1><%= @collection.name %> Collection</h1>
 
+<p>Artist: <%= @collection.user.name %></p>
+
 <% if flash[:error].present? %>
   <h3><%= flash[:error] %></h3>
 <% end %>

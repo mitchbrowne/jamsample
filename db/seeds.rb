@@ -20,7 +20,7 @@ puts "#{ Genre.count } genre created"
 
 Sample.destroy_all
 s1 = Sample.create :title => 'My first loop', :audio_file => 'https://archive.org/details/SalvatoreDeRosaLoopN4', :sample_type => 'loop'
-s2 = Sample.create :title => 'Cool riff', :audio_file => 'https://archive.org/details/GuitarRiffIThoughtWasCool-', :sample_type => 'riff'
+s2 = Sample.create :title => 'The greatest riff of all time', :audio_file => 'https://archive.org/details/GuitarRiffIThoughtWasCool-', :sample_type => 'riff'
 s3 = Sample.create :title => 'Cheeky bass', :audio_file => 'https://archive.org/details/Karls_Bass_riff', :sample_type => 'loop'
 s4 = Sample.create :title => 'Flume Module', :audio_file => 'https://archive.org/details/Karls_Bass_riff'
 puts "#{ Sample.count } samples created"
