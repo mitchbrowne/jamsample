@@ -18,7 +18,7 @@ class SamplesController < ApplicationController
     @sample = Sample.new sample_params
 
     if @current_user.samples.exists?(:title => sample_params[:title])
-      flash[:error] = "Title already exists."
+      flash.now[:error] = "Title already exists."
       render :new
     else
       if params[:file].present?
@@ -42,21 +42,29 @@ class SamplesController < ApplicationController
   end
 
   def update
-    sample = Sample.find params[:id]
-    sample.update sample_params
-    if params[:file].present?
-      req = Cloudinary::Uploader.upload(params[:file])
-      sample.image = req["public_id"]
-    end
-    sample.genres = []
-    unless params[:sample][:genre_ids].nil?
-      params[:sample][:genre_ids].each do |genre_id|
-        sample.genres << Genre.find(genre_id) unless genre_id.empty?
-      end
-    end
-    sample.save
+    @sample = Sample.find params[:id]
+    @collections = @current_user.collections
 
-    redirect_to sample_path
+
+    if @current_user.samples.exists?(:title => sample_params[:title]) && @sample.title != sample_params[:title]
+      flash.now[:error] = "Title already exists."
+      render :edit
+    else
+      @sample.update sample_params
+      if params[:file].present?
+        req = Cloudinary::Uploader.upload(params[:file])
+        @sample.image = req["public_id"]
+      end
+      @sample.genres = []
+      unless params[:sample][:genre_ids].nil?
+        params[:sample][:genre_ids].each do |genre_id|
+          @sample.genres << Genre.find(genre_id) unless genre_id.empty?
+        end
+      end
+      @sample.save
+
+      redirect_to sample_path
+    end
   end
 
   def destroy
