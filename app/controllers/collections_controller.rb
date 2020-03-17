@@ -3,11 +3,18 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
+    @samples = @current_user.samples
   end
 
   def create
     collection = Collection.create collection_params
     @current_user.collections << collection
+    collection.samples = []
+    unless params[:collection][:sample_ids].nil?
+      params[:collection][:sample_ids].each do |sample_id|
+        collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
+      end
+    end
     redirect_to collection_path(collection)
   end
 
@@ -28,10 +35,11 @@ class CollectionsController < ApplicationController
   def update
     collection = Collection.find params[:id]
     collection.samples = []
-    params[:collection][:sample_ids].each do |sample_id|
-      collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
+    unless params[:collection][:sample_ids].nil?
+      params[:collection][:sample_ids].each do |sample_id|
+        collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
+      end
     end
-
     collection.update collection_params
     redirect_to collection_path
   end
@@ -45,11 +53,6 @@ class CollectionsController < ApplicationController
       collection.destroy
       redirect_to collections_path
     end
-  end
-
-  def add_sample
-    @collection = Collection.find params[:id]
-    @samples = @current_user.samples
   end
 
   private
