@@ -7,15 +7,23 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    collection = Collection.create collection_params
-    @current_user.collections << collection
-    collection.samples = []
-    unless params[:collection][:sample_ids].nil?
-      params[:collection][:sample_ids].each do |sample_id|
-        collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
+    @samples = @current_user.samples
+    @collection = Collection.new collection_params
+
+    if @current_user.collections.exists?(:name => collection_params[:name])
+      flash.now[:error] = "Name already exists."
+      render :new
+    else
+      @current_user.collections << @collection
+      @collection.samples = []
+      unless params[:collection][:sample_ids].nil?
+        params[:collection][:sample_ids].each do |sample_id|
+          @collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
+        end
       end
+      @collection.save
+      redirect_to collection_path(@collection)
     end
-    redirect_to collection_path(collection)
   end
 
   def show

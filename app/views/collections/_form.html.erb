@@ -1,3 +1,7 @@
+<% if flash[:error].present? %>
+  <h2><%= flash[:error] %></h2>
+<% end %>
+
 <%= form_for @collection do |f| %>
   <fieldset>
     <%= f.label :name %>
@@ -8,7 +12,7 @@
     <%= f.label "Choose Samples" %><br>
     <% @samples.each do |sample| %>
       <%= check_box_tag "collection[sample_ids][]", sample.id, @collection.sample_ids.include?(sample.id), id: dom_id(sample) %>
-      <%= label_tag dom_id(sample), sample.title  %>
+      <%= label_tag dom_id(sample), sample.title  %><br>
     <% end %>
   </fieldset>
 
