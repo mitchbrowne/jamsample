@@ -28,7 +28,6 @@ class SamplesController < ApplicationController
 
   def update
     sample = Sample.find params[:id]
-    # raise "hell"
     sample.genres = []
     params[:sample][:genre_ids].each do |genre_id|
       sample.genres << Genre.find(genre_id) unless genre_id.empty?

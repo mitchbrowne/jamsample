@@ -26,6 +26,12 @@ class CollectionsController < ApplicationController
 
   def update
     collection = Collection.find params[:id]
+
+    collection.samples = []
+    params[:collection][:sample_ids].each do |sample_id|
+      collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
+    end
+
     collection.update collection_params
     redirect_to collection_path
   end
@@ -48,6 +54,6 @@ class CollectionsController < ApplicationController
 
   private
   def collection_params
-    params.require(:collection).permit(:name, :user_id)
+    params.require(:collection).permit(:name, :user_id, :sample_ids)
   end
 end
