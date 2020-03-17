@@ -19,10 +19,10 @@ puts "#{ Genre.count } genre created"
 
 
 Sample.destroy_all
-s1 = Sample.create :title => 'My first loop', :audio_file => 'https://archive.org/details/SalvatoreDeRosaLoopN4', :sample_type => 'loop'
-s2 = Sample.create :title => 'The greatest riff of all time', :audio_file => 'https://archive.org/details/GuitarRiffIThoughtWasCool-', :sample_type => 'riff'
-s3 = Sample.create :title => 'Cheeky bass', :audio_file => 'https://archive.org/details/Karls_Bass_riff', :sample_type => 'loop'
-s4 = Sample.create :title => 'Flume Module', :audio_file => 'https://archive.org/details/Karls_Bass_riff'
+s1 = Sample.create :title => 'My first loop', :audio_file => 'https://ia903101.us.archive.org/2/items/funbassloop/Fun%20Bass%20Loop.mp3', :sample_type => 'loop'
+s2 = Sample.create :title => 'The greatest riff of all time', :audio_file => 'https://ia802307.us.archive.org/8/items/loop2005-08-19.flac16/loop2005-08-19d1t01.mp3', :sample_type => 'riff'
+s3 = Sample.create :title => 'Cheeky bass', :audio_file => 'https://ia800301.us.archive.org/21/items/LoopTheory-RollOut/LoopTheory_Roll_Out.mp3', :sample_type => 'loop'
+s4 = Sample.create :title => 'Flume Module', :audio_file => 'https://ia903102.us.archive.org/10/items/acidplanet-audio-00183931/00183931.mp3'
 puts "#{ Sample.count } samples created"
 
 # Associations #######################################
