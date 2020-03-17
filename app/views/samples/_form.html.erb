@@ -24,5 +24,12 @@
     <%= f.select :collection_id, @collections.pluck(:name, :id)%>
   </fieldset>
 
+  <fieldset>
+    <% Genre.all.each do |genre| %>
+      <%= check_box_tag "sample[genre_ids][]", genre.id, @sample.genre_ids.include?(genre.id), id: dom_id(genre) %>
+      <%= label_tag dom_id(genre), genre.name %><br>
+    <% end %>
+  </fieldset>
+
   <%= f.submit %>
 <% end %>

@@ -28,7 +28,13 @@ class SamplesController < ApplicationController
 
   def update
     sample = Sample.find params[:id]
+    # raise "hell"
+    sample.genres = []
+    params[:sample][:genre_ids].each do |genre_id|
+      sample.genres << Genre.find(genre_id) unless genre_id.empty?
+    end
     sample.update sample_params
+
     redirect_to sample_path
   end
 
@@ -40,6 +46,6 @@ class SamplesController < ApplicationController
 
   private
   def sample_params
-    params.require(:sample).permit(:title, :audio_file, :image, :sample_type, :collection_id)
+    params.require(:sample).permit(:title, :audio_file, :image, :sample_type, :collection_id, :genre_ids)
   end
 end
