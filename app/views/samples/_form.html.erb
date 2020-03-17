@@ -23,7 +23,7 @@
 
   <fieldset>
     <%= f.label :collection_id %>
-    <%= f.select :collection_id, @collections.pluck(:name, :id)%>
+    <%= f.select :collection_id, @collections.pluck(:name, :id), :include_blank => true %>
   </fieldset>
 
   <fieldset>
