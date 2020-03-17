@@ -21,12 +21,12 @@ class CollectionsController < ApplicationController
 
   def edit
     @collection = Collection.find params[:id]
+    @samples = @current_user.samples
     check_for_collection
   end
 
   def update
     collection = Collection.find params[:id]
-
     collection.samples = []
     params[:collection][:sample_ids].each do |sample_id|
       collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)

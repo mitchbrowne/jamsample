@@ -4,6 +4,14 @@
     <%= f.text_field :name, :required => true %>
   </fieldset>
 
+  <fieldset>
+    <%= f.label "Choose Samples" %><br>
+    <% @samples.each do |sample| %>
+      <%= check_box_tag "collection[sample_ids][]", sample.id, @collection.sample_ids.include?(sample.id), id: dom_id(sample) %>
+      <%= label_tag dom_id(sample), sample.title  %>
+    <% end %>
+  </fieldset>
+
   <%= f.submit %>
 
 <% end %>
