@@ -37,3 +37,7 @@ c2.samples << s2
 puts "Collections and Users"
 u1.collections << c1
 u2.collections << c2
+
+puts "Samples and Users"
+u1.samples << s1 << s3
+u2.samples << s2

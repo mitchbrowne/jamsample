@@ -3,5 +3,5 @@ class User < ApplicationRecord
   validates :email, :presence => true, :uniqueness => true
 
   has_many :collections
-  has_many :samples, :through => :collections
+  has_many :samples
 end
