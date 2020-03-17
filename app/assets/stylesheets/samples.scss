@@ -1,6 +1,8 @@
 // Place all the styles related to the Samples controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500);
+
 html {
   background-color: #f0f39c;
   box-sizing: border-box;
@@ -8,7 +10,7 @@ html {
 
 body {
   background-color: #f0f39c;
-
+  font-family: 'Raleway', sans-serif;
 }
 
 .sample_playerOne_container {
@@ -26,7 +28,7 @@ body {
   box-shadow: 0 15px 23px rgba(0,0,0, 0.2);
 }
 
-.album_image_container {
+.sample_image_container {
   height: 20em;
   width: 20em;
   position: absolute;
@@ -35,10 +37,16 @@ body {
   box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.4);
 }
 
-.album_image {
+.sample_image {
   height: inherit;
   position: relative;
   width: inherit;
+}
+
+.sample_detail_container {
+  position: absolute;
+  top: 10%;
+  left: 10%;
 }
 
 .sample_container {
@@ -46,9 +54,40 @@ body {
   flex-direction: column;
 }
 
-body {
-  margin: 0px;
-  padding: 0px;
+.player_controls_container {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  height: 3em;
+  width: 10em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player_item {
+  height: 3em;
+  width: 3em;
+  margin: 0 1em;
+  cursor: pointer;
+}
+
+.player_play {
+  width: 0em;
+  height: 0em;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #f0f39c;
+}
+
+.player_pause {
+  width: 2em;
+  height: 2em;
+}
+
+.hidden_audio_file {
+  visibility: hidden;
 }
 
 #bg {
@@ -114,7 +153,7 @@ body {
   left: 50%;
   transform: translate(-50%,-50%);
 }
-#play,#next,#pre{
+#next,#pre{
   width: 50px;
   height: 50px;
   border: 0;
