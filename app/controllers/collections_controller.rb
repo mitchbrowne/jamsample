@@ -41,15 +41,22 @@ class CollectionsController < ApplicationController
   end
 
   def update
-    collection = Collection.find params[:id]
-    collection.samples = []
-    unless params[:collection][:sample_ids].nil?
-      params[:collection][:sample_ids].each do |sample_id|
-        collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
+    @collection = Collection.find params[:id]
+    @samples = @current_user.samples
+
+    if @current_user.collections.exists?(:name => collection_params[:name]) && @collection.name != collection_params[:name]
+      flash.now[:error] = "Name already exists."
+      render :edit
+    else
+      @collection.samples = []
+      unless params[:collection][:sample_ids].nil?
+        params[:collection][:sample_ids].each do |sample_id|
+          @collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
+        end
       end
+      @collection.update collection_params
+      redirect_to collection_path
     end
-    collection.update collection_params
-    redirect_to collection_path
   end
 
   def destroy
