@@ -12,6 +12,7 @@
 <p>Collection: <%= @sample.collection.name unless @sample.collection.nil? %></p>
 <p>Audio File: <%= @sample.audio_file %></p>
 <p>Image: <%= @sample.image %></p>
+<p>Created At: <%= @sample.created_at.strftime '%l:%M %P, %B %e, %Y' %></p>
 
 <div class="sample_controls">
   <%= link_to "Edit Sample", edit_sample_path(@sample) if @current_user.samples.include?(@sample)%>

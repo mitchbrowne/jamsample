@@ -4,14 +4,22 @@ class PagesController < ApplicationController
   def welcome
     @users = User.all
     samples = []
-    @users.each do |user|
-      user.collections.each do |collection|
-        collection.samples.each do |sample|
-          samples.append(sample)
-        end
+      Sample.all.each do |sample|
+        samples.append(sample)
       end
-    end
-    samples.sort_by! {|sample| sample.created_at}
+    samples.sort_by! {|sample| sample.updated_at}
     @samples = samples.reverse!
   end
+
+  #   samples = []
+  #   @users.each do |user|
+  #     user.collections.each do |collection|
+  #       collection.samples.each do |sample|
+  #         samples.append(sample)
+  #       end
+  #     end
+  #   end
+  #   samples.sort_by! {|sample| sample.created_at}
+  #   @samples = samples.reverse!
+  # end
 end
