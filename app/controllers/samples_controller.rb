@@ -13,6 +13,7 @@ class SamplesController < ApplicationController
 
   def create
     sample = Sample.create sample_params
+    @current_user.samples << sample
     redirect_to samples_path
   end
 
@@ -29,8 +30,10 @@ class SamplesController < ApplicationController
   def update
     sample = Sample.find params[:id]
     sample.genres = []
-    params[:sample][:genre_ids].each do |genre_id|
-      sample.genres << Genre.find(genre_id) unless genre_id.empty?
+    unless params[:sample][:genre_ids].nil?
+      params[:sample][:genre_ids].each do |genre_id|
+        sample.genres << Genre.find(genre_id) unless genre_id.empty?
+      end
     end
     sample.update sample_params
 
