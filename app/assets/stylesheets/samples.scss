@@ -223,6 +223,7 @@
 .marketplace_progress_bar_container {
   width: 15em;
   progress[value] {
+    cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
     background-color: white;

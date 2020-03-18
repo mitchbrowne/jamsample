@@ -72,13 +72,13 @@ $(document).ready(function () {
       currentTime = calculateCurrentValue(current_time);
       $('.start-time').html(currentTime);
 
-      let progressBar = $('#seekbar');
+      let progressBar = $(`#seekbar${sample_id}`);
       progressBar.attr('value', player.get(0).currentTime / player.get(0).duration);
       console.log(progressBar.value)
       progressBar.click(seek);
 
       if (player.get(0).currentTime == player.get(0).duration) {
-        $('#play').removeClass('player_pause').addClass('player_play');
+        $(`#play${sample_id}`).removeClass('player_pause').addClass('player_play');
       }
 
       function seek(evt) {
