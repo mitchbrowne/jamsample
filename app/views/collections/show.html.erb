@@ -6,11 +6,59 @@
   <h3><%= flash[:error] %></h3>
 <% end %>
 
-<% @collection.samples.each do |sample| %>
-  <p><%= link_to sample.title, sample_path(sample.id) %></p>
-<% end %>
-
 <div class="collection_controls">
   <%= link_to "Edit Collection", edit_collection_path(@collection) if @current_user.collections.include?(@collection)%>
   <%= link_to "Delete Collection", @collection, :method => 'delete' if @current_user.collections.include?(@collection)%>
 </div>
+
+<% @collection.samples.each do |sample| %>
+
+<div class="collection_playerOne_container">
+
+  <div class="sample_container">
+    <div class="sample_image_container">
+      <%= cl_image_tag(sample.image, :class => 'sample_image', :alt => "#{sample.title} cover image") %>
+    </div>
+
+    <div class="sample_detail_container">
+      <h1><%= sample.title %></h1>
+      <h2>Artist: <%= sample.user.name %></h2>
+      <h3><%= link_to sample.collection.name, sample.collection unless sample.collection.nil? %></h3>
+      <p>
+        Genre:
+        <% sample.genres.each do |genre| %>
+          <%= genre.name %>
+        <% end %>
+      </p>
+      <p>Created At: <%= sample.created_at.strftime '%l:%M %P, %B %e, %Y' %></p>
+      <div class="sample_controls">
+        <%= link_to "Edit Sample", edit_sample_path(sample), :class => "sample_control_link" if @current_user.samples.include?(sample)%>
+        <%= link_to "Delete Sample", sample, :class => "sample_control_link", :method => 'delete' if @current_user.samples.include?(sample)%>
+      </div>
+
+    </div>
+
+<!-- AUDIO BEGINS -->
+
+  <div class="player_container">
+    <div class="player_controls_container">
+      <div id="play" class="player_item player_play"></div>
+    </div>
+
+    <div id="audio_wrapper">
+      <audio id="player">
+        <source src="<%= sample.audio_file %>" type="audio/mp3">
+      </audio>
+    </div>
+
+    <div class="progress_bar_container">
+      <progress id="seekbar" value="0" max="1"></progress>
+      <small class="start-time"></small>
+      <small class="end-time"></small>
+    </div>
+  </div>
+
+  </div>
+
+</div>
+<% end %>
