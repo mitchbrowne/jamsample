@@ -3,10 +3,13 @@
 
 
   <div class="marketplace_sample_container">
+    <div class="marketplace_sample_white_container">
+      
+    </div>
     <div class="marketplace_sample_image_container">
       <%= link_to cl_image_tag(sample.image, :class => 'marketplace_sample_image', :alt => "#{sample.title}"), sample %>
       <div class="marketplace_sample_image_blur">
-        <p><%= link_to sample.title, sample %> by <%= link_to sample.user.name %></p>
+        <p class="marketplace_sample_detail"><%= link_to sample.title, sample %> by <%= link_to sample.user.name %></p>
       </div>
     </div>
   </div>

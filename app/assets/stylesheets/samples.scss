@@ -127,12 +127,21 @@
 // MARKETPLACE MAIN STYLE
 // =============================
 
-// .marketplace_sample_container {
-//   height: 26vw;
-//   width: 22vw;
-//   background-color: white;
-//   box-shadow: 0 15px 23px rgba(0,0,0, 0.2);
-// }
+.marketplace_sample_container {
+  position: relative;
+  height: 26vw;
+  width: 25vw;
+}
+
+.marketplace_sample_white_container {
+  position: absolute;
+  height: 6vw;
+  width: 25vw;
+  bottom: 0;
+  left: -6%;
+  background-color: white;
+  box-shadow: 0 15px 23px rgba(0,0,0, 0.2);
+}
 
 .marketplace_grid_wrapper {
   display: grid;
@@ -160,4 +169,8 @@
   width: 22vw;
   backdrop-filter: blur(6px);
   overflow: hidden;
+}
+
+.marketplace_sample_detail {
+  text-align: center;
 }
