@@ -3,37 +3,53 @@
 <% end %>
 
 <%= form_for(@sample, :html => {:multipart => true})do |f| %>
-  <fieldset>
-    <%= f.label :title %>
-    <%= f.text_field :title, :required => true %>
-  </fieldset>
 
-  <fieldset>
-    <%= f.label :audio_file %>
-    <%= f.url_field :audio_file, :required => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :title, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :title, :required => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label :image %>
-    <%= f.cl_image_upload :image %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :audio_file, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-6">
+      <%= f.url_field :audio_file, :required => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label :sample_type %>
-    <%= f.select :sample_type, options_for_select(["Loop", "Riff", "Lyrics"]), :include_blank => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :image, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-6">
+      <%= f.cl_image_upload :image, :class => '.form-control-file' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label :collection_id %>
-    <%= f.select :collection_id, @collections.pluck(:name, :id), :include_blank => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :sample_type, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-6">
+      <%= f.select :sample_type, options_for_select(["Loop", "Riff", "Lyrics"]), :include_blank => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <% Genre.all.sort.each do |genre| %>
-      <%= check_box_tag "sample[genre_ids][]", genre.id, @sample.genre_ids.include?(genre.id), id: dom_id(genre) %>
-      <%= label_tag dom_id(genre), genre.name %><br>
-    <% end %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :collection_id, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-6">
+      <%= f.select :collection_id, @collections.pluck(:name, :id), :include_blank => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <%= f.submit %>
+  <div class="form-group row">
+    <%= f.label 'Genre', :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-6">
+      <% Genre.all.sort.each do |genre| %>
+      <div class="form-check">
+        <%= check_box_tag "sample[genre_ids][]", genre.id, @sample.genre_ids.include?(genre.id), id: dom_id(genre), :class => "form-check-input" %>
+        <%= label_tag dom_id(genre), genre.name, :class => "form-check-label"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
 <% end %>

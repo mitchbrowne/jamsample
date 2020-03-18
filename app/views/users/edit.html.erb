@@ -9,15 +9,15 @@
 <% end %>
 
 <%= form_for @user do |f| %>
-  <fieldset>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-  </fieldset>
+    <%= f.text_field :name, :required => true, :class => 'form-control' %>
+  </div>
 
-  <fieldset>
+  <div class="form-group>
     <%= f.label :email %>
-    <%= f.text_field :email, :required => true %>
-  </fieldset>
+    <%= f.text_field :email, :required => true, :class => 'form-control' %>
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
 <% end %>
