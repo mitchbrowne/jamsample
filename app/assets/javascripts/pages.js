@@ -34,12 +34,10 @@ $(document).ready(function () {
     console.log(sample_id);
 
     //VARIABLES
-    // let playerID = $('.hidden_id').html();
-    // console.log(playerID);
-    let playerContainer = $('#audio_wrapper');
-    let player = $('#player');
+    let playerContainer = $(`#audio_wrapper${sample_id}`);
+    let player = $(`#player${sample_id}`);
     let isPlaying = false;
-    let playButton = $('#play');
+    let playButton = $(`#play${sample_id}`);
 
     //CONTROL LISTENERS
     if (playButton != null) {
@@ -53,10 +51,10 @@ $(document).ready(function () {
       if (player.get(0).paused === false) {
         player.get(0).pause();
         isPlaying = false;
-        $('#play').removeClass('player_pause').addClass('player_play');
+        $(`#play${sample_id}`).removeClass('player_pause').addClass('player_play');
       } else {
         player.get(0).play();
-        $('#play').removeClass('player_play').addClass('player_pause');
+        $(`#play${sample_id}`).removeClass('player_play').addClass('player_pause');
         isPlaying = true;
       }
     }
