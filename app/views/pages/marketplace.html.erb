@@ -9,7 +9,7 @@
 
   <div class="marketplace_sample_container">
     <div class="marketplace_sample_white_container">
-      <p class="marketplace_sample_detail"><%= link_to sample.title, sample %> by <%= link_to sample.user.name %></p>
+      <p class="marketplace_sample_detail"><%= link_to sample.title, sample %> by <%= link_to sample.user.name, user_path(sample.user.id) %></p>
 
     </div>
     <div class="marketplace_sample_image_container">
