@@ -9,7 +9,8 @@
 
   <div class="sample_container">
     <div class="sample_image_container">
-      <img class="sample_image" src="<%= @sample.image %>" alt="album cover">
+      <!-- <img class="sample_image" src="<%= @sample.image %>" alt="album cover"> -->
+      <%= cl_image_tag(@sample.image, :class => 'sample_image', :alt => "#{@sample.title} cover image") %>
     </div>
 
     <div class="sample_detail_container">
