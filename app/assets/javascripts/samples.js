@@ -84,6 +84,7 @@ function initPlayer() {
   });
 };
 
+// initialise player when page has loaded
 initPlayer();
 
 });

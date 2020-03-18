@@ -53,6 +53,10 @@ body {
   left: 10%;
 }
 
+.sample_control_link {
+  font-size: 0.8em;
+}
+
 .player_container {
   width: 15em;
   height: 5em;
@@ -109,8 +113,6 @@ body {
 #seekbar {
   cursor: pointer;
 }
-
-
 
 .start-time {
   position: absolute;
