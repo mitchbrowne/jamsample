@@ -21,8 +21,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @collections = @user.collections
-    @samples = @user.samples
+    collections = []
+      @user.collections.each do |collection|
+        collections.append(collection)
+      end
+    collections.sort_by! {|collection| collection.updated_at}
+    @collections = collections.reverse!
+
+    samples = []
+      @user.samples.each do |sample|
+        samples.append(sample)
+      end
+    samples.sort_by! {|sample| sample.updated_at}
+    @samples = samples.reverse!
   end
 
   def edit
