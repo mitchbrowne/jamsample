@@ -1,6 +1,5 @@
 <h1><%= @sample.title %></h1>
 
-<div class="sample_container">
 
 <div class="sample_playerOne_container">
   <!-- <div id="bg">
@@ -8,7 +7,7 @@
     <img src="https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Poster1.jpg"/>
   </div> -->
 
-  <div class="player_container">
+  <div class="sample_container">
     <div class="sample_image_container">
       <img class="sample_image" src="<%= @sample.image %>" alt="album cover">
     </div>
@@ -26,6 +25,14 @@
 
     </div>
 
+<!-- AUDIO BEGINS -->
+
+    <div class="audio_wrapper" id="player_container">
+      <audio id="player">
+        <source src="<%= @sample.audio_file %>" type="audio/mp3">
+      </audio>
+    </div>
+
     <div class="player_controls_container">
       <div class="player_item player_prev">P</div>
       <div id="play" class="player_item player_play"></div>
@@ -33,7 +40,7 @@
     </div>
 
     <div class="progress_bar_container">
-      <progress id="seekbar" value="0" max="1" style="width:400px;"></progress>
+      <progress id="seekbar" value="0" max="1"></progress>
     </div>
 
   </div>
@@ -86,5 +93,3 @@
     <%= link_to "Delete Sample", @sample, :method => 'delete' if @current_user.samples.include?(@sample)%>
   </div>
 </div> -->
-
-</div>

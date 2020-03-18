@@ -20,7 +20,7 @@ body {
   align-items: center;
 }
 
-.player_container {
+.sample_container {
   position: relative;
   height: 25em;
   width: 40em;
@@ -47,11 +47,6 @@ body {
   position: absolute;
   top: 10%;
   left: 10%;
-}
-
-.sample_container {
-  display: flex;
-  flex-direction: column;
 }
 
 .player_controls_container {
@@ -84,6 +79,13 @@ body {
 .player_pause {
   width: 2em;
   height: 2em;
+}
+
+.progress_bar_container {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  width: 10em;
 }
 
 .hidden_audio_file {

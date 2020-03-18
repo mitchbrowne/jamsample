@@ -6,47 +6,81 @@ $(document).ready(function () {
 let $songTitle = $("#songTitle");
 let $fillBar = $('#fill');
 
-let song = new Audio();
 
-window.onload = setSong; //calls function playSong when window loads
+// let $song = $('#player');
+// console.log($song);
+// $song.play();
 
-function setSong() {
-  song.src = $('.hidden_audio_file').text(); //set the source of 0th song
-  console.log(song.src)
-}
+function initPlayer() {
 
-function playOrPauseSong() {
-  if(song.paused){
-    song.play();
-    $('#play').removeClass('player_play').addClass('player_pause');
-  } else{
-    song.pause();
-    $('#play').removeClass('player_pause').addClass('player_play');
+  //VARIABLES
+  let playerContainer = $('#player_container');
+  let player = $('#player');
+  let isPlaying = false;
+  let playButton = $('#play');
+
+  //CONTROL LISTENERS
+  if (playButton != null) {
+    playButton.click(function() {
+      togglePlay()
+    });
   };
+
+  //CONTROLS & SOUNDS METHODS
+  function togglePlay() {
+    if (player.get(0).paused === false) {
+      player.get(0).pause();
+      isPlaying = false;
+      $('#play').removeClass('player_pause').addClass('player_play');
+    } else {
+      player.get(0).play();
+      $('#play').removeClass('player_play').addClass('player_pause');
+      isPlaying = true;
+    }
+  }
 };
 
-$('#play').click(function() {
-  console.log("HEY")
-  playOrPauseSong();
-});
+initPlayer();
 
+// window.onload = setSong; //calls function playSong when window loads
 
-
-song.ontimeupdate = function() {
-  $('#seekbar').attr('value', song.currentTime / song.duration);
-  console.log(song.currentTime / song.duration)
-  // let position = song.currentTime / song.duration;
-  // $fillBar.css('width',`${position * 100}%`);
-};
-
-function replay() {
-  playSong();
-  $("#play img").attr("src","https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Pause.png")
-}
-
-$('#pre').click(function() {
-  console.log("YOU")
-  replay();
-})
+// function setSong() {
+//   song.src = $('.hidden_audio_file').text(); //set the source of 0th song
+//   console.log(song.src)
+// }
+//
+// function playOrPauseSong() {
+//   if(song.paused){
+//     song.play();
+//     $('#play').removeClass('player_play').addClass('player_pause');
+//   } else{
+//     song.pause();
+//     $('#play').removeClass('player_pause').addClass('player_play');
+//   };
+// };
+//
+// $('#play').click(function() {
+//   console.log("HEY")
+//   playOrPauseSong();
+// });
+//
+//
+//
+// song.ontimeupdate = function() {
+//   $('#seekbar').attr('value', song.currentTime / song.duration);
+//   console.log(song.currentTime / song.duration)
+//   // let position = song.currentTime / song.duration;
+//   // $fillBar.css('width',`${position * 100}%`);
+// };
+//
+// function replay() {
+//   playSong();
+//   $("#play img").attr("src","https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Pause.png")
+// }
+//
+// $('#pre').click(function() {
+//   console.log("YOU")
+//   replay();
+// })
 
 });
