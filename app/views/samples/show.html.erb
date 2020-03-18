@@ -27,29 +27,25 @@
 
 <!-- AUDIO BEGINS -->
 
-    <div class="audio_wrapper" id="player_container">
+  <div class="player_container">
+    <div class="player_controls_container">
+      <div id="play" class="player_item player_play"></div>
+    </div>
+
+    <div id="audio_wrapper">
       <audio id="player">
         <source src="<%= @sample.audio_file %>" type="audio/mp3">
       </audio>
-    </div>
-
-    <div class="player_controls_container">
-      <div class="player_item player_prev">P</div>
-      <div id="play" class="player_item player_play"></div>
-      <div class="player_item player_next">N</div>
     </div>
 
     <div class="progress_bar_container">
       <progress id="seekbar" value="0" max="1"></progress>
       <small class="start-time"></small>
       <small class="end-time"></small>
-
     </div>
-
   </div>
 
-  <div class="hidden_audio_file">
-    <%= @sample.audio_file %>
+
   </div>
 
   <!-- <div id="main">

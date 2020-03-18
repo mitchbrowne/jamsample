@@ -34,7 +34,7 @@ function calculateCurrentValue(currentTime) {
 function initPlayer() {
 
   //VARIABLES
-  let playerContainer = $('#player_container');
+  let playerContainer = $('#audio_wrapper');
   let player = $('#player');
   let isPlaying = false;
   let playButton = $('#play');

@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500);
 
+* {
+  // border: 1px solid red;
+}
+
 html {
   background-color: #f0f39c;
   box-sizing: border-box;
@@ -49,14 +53,14 @@ body {
   left: 10%;
 }
 
-.player_controls_container {
+.player_container {
+  width: 15em;
+  height: 5em;
   position: absolute;
   bottom: 10%;
   left: 10%;
-  height: 3em;
-  width: 10em;
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
   justify-content: space-between;
   align-items: center;
 }
@@ -71,25 +75,53 @@ body {
 .player_play {
   width: 0em;
   height: 0em;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid #f0f39c;
+  border-top: 2em solid transparent;
+  border-bottom: 2em solid transparent;
+  border-left: 2em solid #f0f39c;
 }
 
 .player_pause {
   width: 2em;
   height: 2em;
+  background-color: #f0f39c;
 }
 
 .progress_bar_container {
-  position: absolute;
-  bottom: 5%;
-  left: 10%;
   width: 10em;
+  progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    color: #f0f39c;
+    height: 0.4em;;
+  }
+  progress[value]::-webkit-progress-bar {
+    background-color: white;
+    // border-radius: 2px;
+    border: 1px solid lighten(#acacac, 20%);
+    color: #f0f39c;
+  }
+  progress::-webkit-progress-value {
+    background-color: #f0f39c;
+  }
 }
 
-.hidden_audio_file {
-  visibility: hidden;
+#seekbar {
+  cursor: pointer;
+}
+
+
+
+.start-time {
+  position: absolute;
+  left: 6em;
+  bottom: 1em;
+}
+
+.end-time {
+  position: absolute;
+  bottom: 1em;
+  right: 0em;
 }
 
 #bg {
