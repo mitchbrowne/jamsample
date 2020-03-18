@@ -3,19 +3,25 @@
 <% end %>
 
 <%= form_for @collection do |f| %>
-  <fieldset>
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-  </fieldset>
+  <div class = "form-group row">
+    <%= f.label :name, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :name, :required => true, :class => "form-control" %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label "Choose Samples" %><br>
-    <% @samples.sort.each do |sample| %>
-      <%= check_box_tag "collection[sample_ids][]", sample.id, @collection.sample_ids.include?(sample.id), id: dom_id(sample) %>
-      <%= label_tag dom_id(sample), sample.title  %><br>
-    <% end %>
-  </fieldset>
+  <div class = "form-group row">
+    <%= f.label "Choose Samples", :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-6">
+      <% @samples.sort.each do |sample| %>
+      <div class="form-check">
+        <%= check_box_tag "collection[sample_ids][]", sample.id, @collection.sample_ids.include?(sample.id), id: dom_id(sample), :class => "form-check-input" %>
+        <%= label_tag dom_id(sample), sample.title, :class => "form-check-label" %><br>
+      </div>
+      <% end %>
+    </div>
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit nil, :class => "btn btn-primary" %>
 
 <% end %>

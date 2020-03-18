@@ -27,7 +27,6 @@
     <div class="sample_detail_container">
       <h1><%= sample.title %></h1>
       <h2>Artist: <%= sample.user.name %></h2>
-      <h3><%= link_to sample.collection.name, sample.collection unless sample.collection.nil? %></h3>
       <p>
         Genre:
         <% sample.genres.each do |genre| %>
