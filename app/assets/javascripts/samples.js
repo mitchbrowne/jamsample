@@ -61,7 +61,6 @@ function initPlayer() {
 
   //PROGRESS BAR ONTIMEUPDATE
   function initProgressBar() {
-    console.log(player.get(0).currentTime);
     let length = player.get(0).duration;
     let current_time = player.get(0).currentTime;
 
@@ -72,14 +71,27 @@ function initPlayer() {
     //calculate current value time
     currentTime = calculateCurrentValue(current_time);
     $('.start-time').html(currentTime);
-  }
+
+    let progressBar = $('#seekbar');
+    progressBar.attr('value', player.get(0).currentTime / player.get(0).duration);
+    console.log(progressBar.value)
+    progressBar.click(seek);
+
+    if (player.get(0).currentTime == player.get(0).duration) {
+      $('#play').removeClass('player_pause').addClass('player_play');
+    }
+
+    function seek(evt) {
+      let percent = evt.offsetX / this.offsetWidth;
+      player.get(0).currentTime = percent * player.get(0).duration;
+      progressBar.value = percent / 100;
+    };
+
+  };
 
   player.on('timeupdate', function() {
     initProgressBar()
-
   });
-
-
 };
 
 initPlayer();
