@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require "rails"
+require "jquery-rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -29,5 +30,7 @@ module Jamsample
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.assets.initialize_on_precompile = false
   end
 end
