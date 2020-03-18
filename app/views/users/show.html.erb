@@ -1,8 +1,64 @@
 <h1><%= @user.name %></h1>
 
+
+<h1>Samples</h1>
 <% @samples.each do |sample| %>
-  <%= link_to cl_image_tag(sample.image, :class => 'feature', :alt => "#{sample.title}"), sample %>
-  <p><%= link_to sample.title, sample %></p>
-  <p><%= link_to sample.collection.name, sample.collection unless sample.collection.nil? %></p>
-  <p>Updated At: <%= sample.updated_at.strftime '%l:%M %P, %B %e, %Y' %></p>
+  <div class="hidden_id"><%= sample.id %></div>
+<% end %>
+
+
+<div class="marketplace_grid_wrapper">
+  <% @samples.each do |sample| %>
+
+  <div class="marketplace_sample_container">
+    <div class="marketplace_sample_white_container">
+      <p class="marketplace_sample_detail"><%= link_to sample.title, sample %></p>
+
+    </div>
+    <div class="marketplace_sample_image_container">
+      <%= link_to cl_image_tag(sample.image, :class => 'marketplace_sample_image', :alt => "#{sample.title}"), sample %>
+      <div class="marketplace_sample_image_blur">
+        <div class="marketplace_player_container">
+          <div class="player_controls_container">
+            <div id="play<%= sample.id %>" class="marketplace_player_item marketplace_player_play"></div>
+          </div>
+
+          <div id="audio_wrapper<%= sample.id %>">
+            <audio id="player<%= sample.id %>">
+              <source src="<%= sample.audio_file %>" type="audio/mp3">
+            </audio>
+          </div>
+
+          <div class="marketplace_progress_bar_container">
+            <progress id="seekbar<%= sample.id %>" value="0" max="1"></progress>
+            <!-- <small class="marketplace_start-time"></small>
+            <small class="marketplace_end-time"></small> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>
+</div>
+
+<h1>Collections</h1>
+
+<div class="marketplace_grid_wrapper">
+  <% @collections.each do |collection| %>
+
+  <div class="marketplace_sample_container">
+    <div class="marketplace_sample_white_container">
+      <p class="marketplace_sample_detail"><%= link_to collection.name, collection %></p>
+
+    </div>
+    <div class="marketplace_sample_image_container">
+      <%= link_to cl_image_tag(collection.samples.first.image, :class => 'marketplace_sample_image', :alt => "#{collection.name}"), collection %>
+      <div class="marketplace_sample_image_blur">
+
+      </div>
+    </div>
+  </div>
+
 <% end %>

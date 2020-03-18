@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = @current_user
+    @collections = @user.collections
     @samples = @user.samples
   end
 

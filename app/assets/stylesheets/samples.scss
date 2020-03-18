@@ -7,6 +7,7 @@
 // =============================
 
 .sample_playerOne_container {
+  margin-top: 7em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -238,20 +239,4 @@
   progress::-webkit-progress-value {
     background-color: #f0f39c;
   }
-}
-
-#seekbar {
-  cursor: pointer;
-}
-
-.marketplace_start-time {
-  position: absolute;
-  left: 6em;
-  bottom: 1em;
-}
-
-.marketplace_end-time {
-  position: absolute;
-  bottom: 1em;
-  right: 0em;
 }
