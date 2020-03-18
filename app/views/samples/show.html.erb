@@ -17,7 +17,7 @@
       </p>
       <!-- <p>Created At: <%= @sample.created_at.strftime '%l:%M %P, %B %e, %Y' %></p> -->
       <div class="sample_controls">
-        <%= link_to "Edit Sample", (edit_sample_path(@sample) if @current_user.samples.include?(@sample)), :class => "sample_control_link"%>
+        <%= link_to "Edit Sample", edit_sample_path(@sample), :class => "sample_control_link" if @current_user.samples.include?(@sample)%>
         <%= link_to "Delete Sample", @sample, :class => "sample_control_link", :method => 'delete' if @current_user.samples.include?(@sample)%>
       </div>
 
