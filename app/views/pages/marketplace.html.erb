@@ -1,50 +1,51 @@
-
-<% @samples.each do |sample| %>
-  <div class="hidden_id"><%= sample.id %></div>
-<% end %>
-
-
-<div class="marketplace_grid_wrapper">
+<div class="grid-container">
   <% @samples.each do |sample| %>
-
-  <div class="marketplace_sample_container">
-    <div class="marketplace_sample_white_container">
-      <p class="marketplace_sample_detail"><%= link_to sample.title, sample %> by <%= link_to sample.user.name, user_path(sample.user.id) %></p>
-
-    </div>
-    <div class="marketplace_sample_image_container">
-      <%= link_to cl_image_tag(sample.image, :class => 'marketplace_sample_image', :alt => "#{sample.title}"), sample %>
-      <div class="marketplace_sample_image_blur">
+    <div class="hidden_id"><%= sample.id %></div>
+  <% end %>
 
 
+  <div class="marketplace_grid_wrapper">
+    <% @samples.each do |sample| %>
 
-
-
-        <div class="marketplace_player_container">
-          <div class="player_controls_container">
-            <div id="play<%= sample.id %>" class="marketplace_player_item marketplace_player_play"></div>
-          </div>
-
-          <div id="audio_wrapper<%= sample.id %>">
-            <audio id="player<%= sample.id %>">
-              <source src="<%= sample.audio_file %>" type="audio/mp3">
-            </audio>
-          </div>
-
-          <div class="marketplace_progress_bar_container">
-            <progress id="seekbar<%= sample.id %>" value="0" max="1"></progress>
-            <!-- <small class="marketplace_start-time"></small>
-            <small class="marketplace_end-time"></small> -->
-          </div>
-        </div>
-
-
-
-
+    <div class="marketplace_sample_container">
+      <div class="marketplace_sample_white_container">
+        <p class="marketplace_sample_detail"><%= link_to sample.title, sample %> by <%= link_to sample.user.name, user_path(sample.user.id) %></p>
 
       </div>
-    </div>
-  </div>
+      <div class="marketplace_sample_image_container">
+        <%= link_to cl_image_tag(sample.image, :class => 'marketplace_sample_image', :alt => "#{sample.title}"), sample %>
+        <div class="marketplace_sample_image_blur">
 
-<% end %>
+
+
+
+
+          <div class="marketplace_player_container">
+            <div class="player_controls_container">
+              <div id="play<%= sample.id %>" class="marketplace_player_item marketplace_player_play"></div>
+            </div>
+
+            <div id="audio_wrapper<%= sample.id %>">
+              <audio id="player<%= sample.id %>">
+                <source src="<%= sample.audio_file %>" type="audio/mp3">
+              </audio>
+            </div>
+
+            <div class="marketplace_progress_bar_container">
+              <progress id="seekbar<%= sample.id %>" value="0" max="1"></progress>
+              <!-- <small class="marketplace_start-time"></small>
+              <small class="marketplace_end-time"></small> -->
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+  </div>
 </div>

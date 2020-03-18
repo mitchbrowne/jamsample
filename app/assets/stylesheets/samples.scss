@@ -129,6 +129,14 @@
 // MARKETPLACE MAIN STYLE
 // =============================
 
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .marketplace_sample_container {
   position: relative;
   height: 28vw;
@@ -140,7 +148,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
-  grid-gap: 3em;
+  grid-gap: 5em;
 }
 
 .marketplace_sample_white_container {
