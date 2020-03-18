@@ -10,6 +10,31 @@ html {
 }
 
 body {
+  padding: 0;
   background-color: #f0f39c;
   font-family: 'Raleway', sans-serif;
+}
+
+.navbar-title {
+  font-size: 3em;
+}
+
+.navbar {
+  // background-color: #DD3E56;
+  background-color: #FFFFFF;
+  box-shadow: 0 0.1em 0.2em rgba(0,0,0, 0.2);
+}
+
+.nav-link {
+  color: white;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.container {
+  margin-top: 1em;
+  // background-color: #EFEFEF;
+  // box-shadow: 0 15px 23px rgba(0,0,0, 0.2);
 }

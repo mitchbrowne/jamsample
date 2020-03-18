@@ -9,25 +9,25 @@
 <% end %>
 
 <%= form_for @user do |f| %>
-  <fieldset>
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, :required => true, :autofocus => true %>
-  </fieldset>
+    <%= f.email_field :email, :required => true, :autofocus => true, :class => 'form-control' %>
+  </div>
 
-  <fieldset>
+  <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, :required => true %>
-  </fieldset>
+    <%= f.password_field :password, :required => true, :class => 'form-control' %>
+  </div>
 
-  <fieldset>
+  <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, :required => true %>
-  </fieldset>
+    <%= f.password_field :password_confirmation, :required => true, :class => 'form-control' %>
+  </div>
 
-  <fieldset>
+  <div class="form-group">
     <%= f.label :name, "Artist Name" %>
-    <%= f.text_field :name, :required => true %>
-  </fieldset>
+    <%= f.text_field :name, :required => true, :class => 'form-control' %>
+  </div>
 
-  <%= f.submit 'Sign Up' %>
+  <%= f.submit 'Sign Up', :class => 'btn btn-primary' %>
 <% end %>
