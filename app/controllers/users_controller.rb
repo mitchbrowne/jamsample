@@ -42,8 +42,11 @@ class UsersController < ApplicationController
 
   def update
     @user = @current_user
-    @user.update user_params
-    render :edit
+    if @user.update user_params
+      redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
 
   private
