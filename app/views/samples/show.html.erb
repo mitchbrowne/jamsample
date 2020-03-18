@@ -22,6 +22,7 @@
           <%= genre.name %>
         <% end %>
       </p>
+      <p>Created At: <%= @sample.created_at.strftime '%l:%M %P, %B %e, %Y' %></p>
 
     </div>
 
@@ -48,25 +49,6 @@
 
   </div>
 
-  <!-- <div id="main">
-    <div id="image">
-      <img src="<%= @sample.image %>"/>
-    </div>
-
-    <div id="player">
-      <div id="songTitle"><%= @sample.title %></div>
-      <div id="buttons">
-        <button id="pre"><img src="https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Pre.png" alt="pre-button" height="90%" width="90%"></button>
-        <button id="play"><img src="https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Play.png" alt="play-button"></button>
-        <button id="next"><img src="https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Next.png" alt="next-button" height="90%" width="90%"></button>
-      </div>
-
-      <div id="seek-bar">
-        <div id="fill"></div>
-        <div id="handle"></div>
-      </div>
-    </div>
-  </div> -->
 
 </div>
 
