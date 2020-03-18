@@ -13,23 +13,34 @@
 
   <body class="<%= controller_name %> <%= action_name %>">
     <div class="container">
-      <nav>
-        <%= link_to "Home", root_path %>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <%= link_to "Jamsample", root_path, :class => 'navbar-brand' %>
         <% if @current_user.present? %>
-          <%= link_to "All Users", users_path if @current_user.admin? %>
-          <%= link_to "Collections", collections_path %>
-          <%= link_to "Samples", samples_path %>
-          <%= link_to "Profile", user_path(@current_user.id) %>
-          <%= link_to "Settings", edit_user_path(@current_user.id) %>
-          <%= link_to "Sign Out #{ @current_user.name }", login_path, :method => 'delete' %>
+        <div class="nav-item dropdown-menu-right">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= @current_user.name %>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "All Users", users_path, :class => 'dropdown-item' if @current_user.admin?%>
+                <%= link_to "Collections", collections_path, :class => 'dropdown-item' %>
+                <%= link_to "Samples", samples_path, :class => 'dropdown-item' %>
+                <%= link_to "Profile", user_path(@current_user.id), :class => 'dropdown-item' %>
+                <%= link_to "Settings", edit_user_path(@current_user.id), :class => 'dropdown-item' %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Sign Out #{ @current_user.name }", login_path, :method => 'delete', :class => 'dropdown-item' %>
+              </div>
+            </li>
+          </ul>
+        </div>
+
         <% else %>
           <%= link_to "Sign Up", new_user_path %>
           <%= link_to "Sign In", login_path %>
         <% end %>
       </nav>
+
       <%= yield %>
     </div>
-
-
   </body>
 </html>
