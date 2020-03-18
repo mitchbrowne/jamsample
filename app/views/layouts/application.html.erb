@@ -4,8 +4,7 @@
     <title>Jamsample</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= cloudinary_js_config %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,21 +12,24 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <nav>
-      <%= link_to "Home", root_path %>
-      <% if @current_user.present? %>
-        <%= link_to "All Users", users_path if @current_user.admin? %>
-        <%= link_to "Collections", collections_path %>
-        <%= link_to "Samples", samples_path %>
-        <%= link_to "Profile", user_path(@current_user.id) %>
-        <%= link_to "Settings", edit_user_path(@current_user.id) %>
-        <%= link_to "Sign Out #{ @current_user.name }", login_path, :method => 'delete' %>
-      <% else %>
-        <%= link_to "Sign Up", new_user_path %>
-        <%= link_to "Sign In", login_path %>
-      <% end %>
-    </nav>
-    <%= yield %>
+    <div class="container">
+      <nav>
+        <%= link_to "Home", root_path %>
+        <% if @current_user.present? %>
+          <%= link_to "All Users", users_path if @current_user.admin? %>
+          <%= link_to "Collections", collections_path %>
+          <%= link_to "Samples", samples_path %>
+          <%= link_to "Profile", user_path(@current_user.id) %>
+          <%= link_to "Settings", edit_user_path(@current_user.id) %>
+          <%= link_to "Sign Out #{ @current_user.name }", login_path, :method => 'delete' %>
+        <% else %>
+          <%= link_to "Sign Up", new_user_path %>
+          <%= link_to "Sign In", login_path %>
+        <% end %>
+      </nav>
+      <%= yield %>
+    </div>
+
 
   </body>
 </html>

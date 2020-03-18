@@ -1,21 +1,10 @@
 // Place all the styles related to the Samples controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500);
 
-* {
-  // border: 1px solid red;
-}
-
-html {
-  background-color: #f0f39c;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #f0f39c;
-  font-family: 'Raleway', sans-serif;
-}
+// =============================
+// SAMPLE CONTAINER
+// =============================
 
 .sample_playerOne_container {
   display: flex;
@@ -31,6 +20,10 @@ body {
   background-color: white;
   box-shadow: 0 15px 23px rgba(0,0,0, 0.2);
 }
+
+// =============================
+// SAMPLE IMAGE & DETAILS
+// =============================
 
 .sample_image_container {
   height: 20em;
@@ -56,6 +49,10 @@ body {
 .sample_control_link {
   font-size: 0.8em;
 }
+
+// =============================
+// SAMPLE PLAYER
+// =============================
 
 .player_container {
   width: 15em;
