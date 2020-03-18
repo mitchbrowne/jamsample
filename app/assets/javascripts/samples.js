@@ -11,6 +11,26 @@ let $fillBar = $('#fill');
 // console.log($song);
 // $song.play();
 
+function calculateTotalValue(length) {
+  var minutes = Math.floor(length / 60),
+    seconds_int = length - minutes * 60,
+    seconds_str = seconds_int.toString(),
+    seconds = seconds_str.substr(0, 2),
+    time = minutes + ':' + seconds
+
+  return time;
+}
+
+function calculateCurrentValue(currentTime) {
+  var current_hour = parseInt(currentTime / 3600) % 24,
+    current_minute = parseInt(currentTime / 60) % 60,
+    current_seconds_long = currentTime % 60,
+    current_seconds = current_seconds_long.toFixed(),
+    current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
+
+  return current_time;
+}
+
 function initPlayer() {
 
   //VARIABLES
@@ -38,6 +58,28 @@ function initPlayer() {
       isPlaying = true;
     }
   }
+
+  //PROGRESS BAR ONTIMEUPDATE
+  function initProgressBar() {
+    console.log(player.get(0).currentTime);
+    let length = player.get(0).duration;
+    let current_time = player.get(0).currentTime;
+
+    //calculate total length of value
+    let totalLength = calculateTotalValue(length);
+    $('.end-time').html(totalLength);
+
+    //calculate current value time
+    currentTime = calculateCurrentValue(current_time);
+    $('.start-time').html(currentTime);
+  }
+
+  player.on('timeupdate', function() {
+    initProgressBar()
+
+  });
+
+
 };
 
 initPlayer();
