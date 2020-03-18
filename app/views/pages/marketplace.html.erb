@@ -1,8 +1,15 @@
-<h1>Marketplace</h1>
+<div class="marketplace_grid_wrapper">
+  <% @samples.each do |sample| %>
 
-<% @samples.each do |sample| %>
-  <%= link_to cl_image_tag(sample.image, :class => 'feature', :alt => "#{sample.title}"), sample %>
-  <p><%= link_to sample.title, sample %></p>
-  <p><%= link_to sample.collection.name, sample.collection unless sample.collection.nil? %></p>
-  <p>Updated At: <%= sample.updated_at.strftime '%l:%M %P, %B %e, %Y' %></p>
+
+  <div class="marketplace_sample_container">
+    <div class="marketplace_sample_image_container">
+      <%= link_to cl_image_tag(sample.image, :class => 'marketplace_sample_image', :alt => "#{sample.title}"), sample %>
+      <div class="marketplace_sample_image_blur">
+        <p><%= link_to sample.title, sample %> by <%= link_to sample.user.name %></p>
+      </div>
+    </div>
+  </div>
+
 <% end %>
+</div>

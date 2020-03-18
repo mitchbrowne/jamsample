@@ -1,15 +1,7 @@
-<h1>  <%= @sample.title %></h1>
-
-
 <div class="sample_playerOne_container">
-  <!-- <div id="bg">
-    <div id="blackLayer"></div>
-    <img src="https://raw.githubusercontent.com/DaftCreation/Custom-Audio-Player/master/Poster1.jpg"/>
-  </div> -->
 
   <div class="sample_container">
     <div class="sample_image_container">
-      <!-- <img class="sample_image" src="<%= @sample.image %>" alt="album cover"> -->
       <%= cl_image_tag(@sample.image, :class => 'sample_image', :alt => "#{@sample.title} cover image") %>
     </div>
 
@@ -51,8 +43,6 @@
     </div>
   </div>
 
-
   </div>
-
 
 </div>
