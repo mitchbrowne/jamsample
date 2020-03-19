@@ -32,6 +32,9 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find params[:id]
+    samples = @collection.samples.order(:created_at)
+    @samples = samples.reverse
+
   end
 
   def index
