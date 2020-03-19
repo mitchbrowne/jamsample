@@ -2,32 +2,32 @@ $(document).ready(function () {
   if ($('.collections.show').length === 0) return;
     console.log("Welcome to add samples inside collections controller");
 
-      function calculateTotalValue(length) {
-        var minutes = Math.floor(length / 60),
-          seconds_int = length - minutes * 60,
-          seconds_str = seconds_int.toString(),
-          seconds = seconds_str.substr(0, 2),
-          time = minutes + ':' + seconds
+    function calculateTotalValue(length) {
+      var minutes = Math.floor(length / 60),
+        seconds_int = length - minutes * 60,
+        seconds_str = seconds_int.toString(),
+        seconds = seconds_str.substr(0, 2),
+        time = minutes + ':' + seconds
 
-        return time;
-      };
+      return time;
+    };
 
-      function calculateCurrentValue(currentTime) {
-        var current_hour = parseInt(currentTime / 3600) % 24,
-          current_minute = parseInt(currentTime / 60) % 60,
-          current_seconds_long = currentTime % 60,
-          current_seconds = current_seconds_long.toFixed(),
-          current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
+    function calculateCurrentValue(currentTime) {
+      var current_hour = parseInt(currentTime / 3600) % 24,
+        current_minute = parseInt(currentTime / 60) % 60,
+        current_seconds_long = currentTime % 60,
+        current_seconds = current_seconds_long.toFixed(),
+        current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
 
-          console.log("collections")
-        return current_time;
-      };
+      console.log("collections");
+      return current_time;
+    };
 
-      function initPlayers() {
-        for (let i = 0; i < $sample_ids.length; i++) {
-          initPlayer($sample_ids[i].innerHTML);
-        }
-      };
+    function initPlayers() {
+      for (let i = 0; i < $sample_ids.length; i++) {
+        initPlayer($sample_ids[i].innerHTML);
+      }
+    };
 
       function initPlayer(sample_id) {
 
@@ -89,7 +89,7 @@ $(document).ready(function () {
         };
 
         player.on('timeupdate', function() {
-          initProgressBar()
+          initProgressBar();
         });
       };
 
