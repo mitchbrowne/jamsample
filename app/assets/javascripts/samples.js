@@ -6,10 +6,10 @@ $(document).ready(function () {
       seconds_int = length - minutes * 60,
       seconds_str = seconds_int.toString(),
       seconds = seconds_str.substr(0, 2),
-      time = minutes + ':' + seconds
+      time = minutes + ':' + seconds;
 
     return time;
-  }
+  };
 
   function calculateCurrentValue(currentTime) {
     var current_hour = parseInt(currentTime / 3600) % 24,
@@ -19,13 +19,13 @@ $(document).ready(function () {
       current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
 
     return current_time;
-  }
+  };
 
   function initPlayers() {
     for (let i = 0; i < $sample_ids.length; i++) {
       initPlayer($sample_ids[i].innerHTML);
     }
-  }
+  };
 
   function initPlayer(sample_id) {
 
