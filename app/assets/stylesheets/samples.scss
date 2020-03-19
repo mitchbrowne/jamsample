@@ -128,20 +128,14 @@
 // =============================
 // MARKETPLACE MAIN STYLE
 // =============================
-
-.grid-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.marketplace_sample_container {
-  position: relative;
-  height: 28vw;
-  width: 25vw;
-}
+//
+// .grid-container {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 0 auto;
+// }
 
 .marketplace_grid_wrapper {
   display: grid;
@@ -149,6 +143,14 @@
   align-items: center;
   justify-content: center;
   grid-gap: 5em;
+}
+
+.marketplace_sample_container {
+  align-self: center;
+  justify-self: center;
+  position: relative;
+  height: 28vw;
+  width: 22vw;
 }
 
 .marketplace_sample_white_container {
@@ -269,6 +271,12 @@
 // =============================
 // USER SHOW PAGE
 // =============================
+
+.user_main_title {
+  font-size: 5em;
+  margin-top: 0.5em;
+  text-align: center;
+}
 
 .user_show_collection_title {
   margin-top: 3em;
