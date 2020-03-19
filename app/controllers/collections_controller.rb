@@ -35,7 +35,7 @@ class CollectionsController < ApplicationController
   end
 
   def index
-    @collections = @current_user.collections
+    redirect_to user_path(@current_user.id)
   end
 
   def edit
@@ -69,12 +69,13 @@ class CollectionsController < ApplicationController
 
   def destroy
     collection = Collection.find params[:id]
+    user = collection.user
     if collection.samples.present?
       flash[:error] = "Cannot delete collection if collection holds samples."
       redirect_to collection_path
     else
       collection.destroy
-      redirect_to collections_path
+      redirect_to user_path(user.id)
     end
   end
 
