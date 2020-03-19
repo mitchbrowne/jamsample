@@ -1,4 +1,6 @@
-  <h1 class="collection_title_main"><%= @collection.name %></h1>
+  <%= link_to cl_image_tag(@collection.image, :class => 'collection_show_image', :alt => "#{@collection.name} image"), @collection %>
+
+  <h1 class="collection_title_main"><%= link_to @collection.name, @collection %></h1>
   <h3 class="collection_title_sub">A Collection by <%= link_to @collection.user.name, user_path(@collection.user.id) %></h3>
   <hr class="collection_show_hr">
 
