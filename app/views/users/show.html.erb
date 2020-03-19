@@ -1,7 +1,12 @@
 <h1 class="user_main_title"><%= link_to @user.name, user_path(@user.id) %></h1>
 
+<div class="title_section_container">
+  <h1 class="user_show_collection_title">Samples</h1>
+  <h4><%= link_to "New Sample", new_sample_path %></h4>
+</div>
+<hr class="user_show_hr">
 
-<h1 class="user_show_collection_title">Samples</h1><hr class="user_show_hr">
+
 <% @samples.each do |sample| %>
   <div class="hidden_id"><%= sample.id %></div>
 <% end %>
@@ -41,7 +46,11 @@
 <% end %>
 </div>
 
-<h1 class="user_show_collection_title">Collections</h1><hr class="user_show_collection_hr user_show_hr">
+<div class="title_section_container">
+  <h1 class="user_show_collection_title">Collections</h1>
+  <h4><%= link_to "New Collection", new_collection_path %></h4>
+</div>
+<hr class="user_show_collection_hr user_show_hr">
 
 <div class="explore_grid_wrapper">
   <% @collections.each do |collection| %>
@@ -52,7 +61,7 @@
 
     </div>
     <div class="explore_sample_image_container">
-      <%= link_to cl_image_tag(collection.samples.first.image, :class => 'explore_sample_image', :alt => "#{collection.name}"), collection %>
+      <%= link_to cl_image_tag(collection.image, :class => 'explore_sample_image', :alt => "#{collection.name} image"), collection %>
     </div>
   </div>
 

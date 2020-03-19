@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_033449) do
+ActiveRecord::Schema.define(version: 2020_03_19_011015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_03_17_033449) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image", default: "https://previews.123rf.com/images/vladwel/vladwel1605/vladwel160500181/57404563-vinyl-record-vector-icon-compact-cd-disk-dvd-disc-gramophone-record-symbol-rotating-record-disc-flat.jpg"
   end
 
   create_table "genres", force: :cascade do |t|

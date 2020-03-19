@@ -14,6 +14,10 @@ class CollectionsController < ApplicationController
       flash.now[:error] = "Name already exists."
       render :new
     else
+      if params[:file].present?
+        req = Cloudinary::Uploader.upload(params[:file])
+        @collection.image = req["public_id"]
+      end
       @current_user.collections << @collection
       @collection.samples = []
       unless params[:collection][:sample_ids].nil?
@@ -48,6 +52,10 @@ class CollectionsController < ApplicationController
       flash.now[:error] = "Name already exists."
       render :edit
     else
+      if params[:file].present?
+        req = Cloudinary::Uploader.upload(params[:file])
+        @collection.image = req["public_id"]
+      end
       @collection.samples = []
       unless params[:collection][:sample_ids].nil?
         params[:collection][:sample_ids].each do |sample_id|
