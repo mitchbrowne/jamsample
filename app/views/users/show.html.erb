@@ -2,7 +2,7 @@
 
 <div class="title_section_container">
   <h1 class="user_show_collection_title">Samples</h1>
-  <h4><%= link_to "New Sample", samples_new_audio_path, :class => 'link_to' unless @user != @current_user %></h4>
+  <h6><%= link_to "New Sample", samples_new_audio_path, :class => 'link_to' unless @user != @current_user %></h6>
 </div>
 <hr class="user_show_hr">
 
@@ -11,7 +11,12 @@
   <div class="hidden_id"><%= sample.id %></div>
 <% end %>
 
-
+<% if @samples.empty? %>
+<br>
+<br>
+<br>
+  <h5>You have no samples. <%= link_to "Add sample", samples_new_audio_path, :class => 'link_to' %>?</h5>
+<% else %>
 <div class="explore_grid_wrapper">
   <% @samples.each do |sample| %>
 
@@ -45,13 +50,17 @@
 
 <% end %>
 </div>
+<% end %>
 
 <div class="title_section_container">
   <h1 class="user_show_collection_title">Collections</h1>
-  <h4><%= link_to "New Collection", new_collection_path, :class => 'link_to' unless @user != @current_user %></h4>
+  <h6><%= link_to "New Collection", new_collection_path, :class => 'link_to' unless @user != @current_user %></h6>
 </div>
 <hr class="user_show_collection_hr user_show_hr">
 
+<% if @collections.empty? %>
+  <h5>You have no collections. <%= link_to "Add collection", new_collection_path, :class => 'link_to' %>?</h5>
+<% else %>
 <div class="explore_grid_wrapper">
   <% @collections.each do |collection| %>
 
@@ -64,5 +73,6 @@
       <%= link_to cl_image_tag(collection.image, :class => 'explore_sample_image', :alt => "#{collection.name} image"), collection %>
     </div>
   </div>
+<% end %>
 
 <% end %>
