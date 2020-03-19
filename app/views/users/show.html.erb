@@ -1,8 +1,8 @@
-<h1 class="user_main_title"><%= link_to @user.name, user_path(@user.id) %></h1>
+<h1 class="user_main_title"><%= link_to @user.name, user_path(@user.id), :class => 'link_to' %></h1>
 
 <div class="title_section_container">
   <h1 class="user_show_collection_title">Samples</h1>
-  <h4><%= link_to "New Sample", new_sample_path %></h4>
+  <h4><%= link_to "New Sample", new_sample_path, :class => 'link_to' unless @user != @current_user %></h4>
 </div>
 <hr class="user_show_hr">
 
@@ -17,7 +17,7 @@
 
   <div class="explore_sample_container">
     <div class="explore_sample_white_container">
-      <p class="explore_sample_detail"><%= link_to sample.title, sample %></p>
+      <p class="explore_sample_detail"><%= link_to sample.title, sample, :class => 'link_to' %></p>
 
     </div>
     <div class="explore_sample_image_container">
@@ -48,7 +48,7 @@
 
 <div class="title_section_container">
   <h1 class="user_show_collection_title">Collections</h1>
-  <h4><%= link_to "New Collection", new_collection_path %></h4>
+  <h4><%= link_to "New Collection", new_collection_path, :class => 'link_to' unless @user != @current_user %></h4>
 </div>
 <hr class="user_show_collection_hr user_show_hr">
 
@@ -57,7 +57,7 @@
 
   <div class="explore_sample_container">
     <div class="explore_sample_white_container">
-      <p class="explore_sample_detail"><%= link_to collection.name, collection %></p>
+      <p class="explore_sample_detail"><%= link_to collection.name, collection, :class => 'link_to' %></p>
 
     </div>
     <div class="explore_sample_image_container">

@@ -9,7 +9,7 @@
 
     <div class="explore_sample_container">
       <div class="explore_sample_white_container">
-        <p class="explore_sample_detail"><%= link_to sample.title, sample %> by <%= link_to sample.user.name, user_path(sample.user.id) %></p>
+        <p class="explore_sample_detail"><%= link_to sample.title, sample, :class => 'link_to' %> by <%= link_to sample.user.name, user_path(sample.user.id), :class => 'link_to' %></p>
 
       </div>
       <div class="explore_sample_image_container">

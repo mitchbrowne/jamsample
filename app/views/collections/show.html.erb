@@ -1,14 +1,14 @@
   <%= link_to cl_image_tag(@collection.image, :class => 'collection_show_image', :alt => "#{@collection.name} image"), @collection %>
 
-  <h1 class="collection_title_main"><%= link_to @collection.name, @collection %></h1>
-  <h3 class="collection_title_sub">A Collection by <%= link_to @collection.user.name, user_path(@collection.user.id) %></h3>
+  <h1 class="collection_title_main"><%= link_to @collection.name, @collection, :class => 'link_to link_to_title' %></h1>
+  <h3 class="collection_title_sub">A Collection by <%= link_to @collection.user.name, user_path(@collection.user.id), :class => 'link_to' %></h3>
   <hr class="collection_show_hr">
 
 <div class="collection_controls_container">
   <div class="collection_controls">
-    <%= link_to "Edit Collection", edit_collection_path(@collection), :class => "collection_controls_link" if @current_user.collections.include?(@collection)%>
+    <%= link_to "Edit Collection", edit_collection_path(@collection), :class => "collection_controls_link link_to link_to_controls" if @current_user.collections.include?(@collection)%>
 
-    <%= link_to "Delete Collection", @collection, :class => "collection_controls_link", :method => 'delete' if @current_user.collections.include?(@collection)%>
+    <%= link_to "Delete Collection", @collection, :class => "collection_controls_link link_to link_to_controls", :method => 'delete' if @current_user.collections.include?(@collection)%>
   </div>
 </div>
 
@@ -31,8 +31,8 @@
     </div>
 
     <div class="sample_detail_container">
-      <h1><%= sample.title %></h1>
-      <h2>Artist: <%= sample.user.name %></h2>
+      <h1><%= link_to sample.title, sample, :class => 'link_to' %></h1>
+      <h2>Artist: <%= link_to sample.user.name, sample.user, :class => 'link_to' %></h2>
       <p>
         Genre:
         <% sample.genres.each do |genre| %>
@@ -41,8 +41,8 @@
       </p>
       <p>Created At: <%= sample.created_at.strftime '%l:%M %P, %B %e, %Y' %></p>
       <div class="sample_controls">
-        <%= link_to "Edit Sample", edit_sample_path(sample), :class => "sample_control_link" if @current_user.samples.include?(sample)%>
-        <%= link_to "Delete Sample", sample, :class => "sample_control_link", :method => 'delete' if @current_user.samples.include?(sample)%>
+        <%= link_to "Edit Sample", edit_sample_path(sample), :class => "sample_control_link link_to link_to_controls" if @current_user.samples.include?(sample)%> |
+        <%= link_to "Delete Sample", sample, :class => "sample_control_link link_to link_to_controls", :method => 'delete' if @current_user.samples.include?(sample)%>
       </div>
 
     </div>
