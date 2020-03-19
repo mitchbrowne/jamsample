@@ -127,11 +127,11 @@
 }
 
 // =============================
-// MARKETPLACE MAIN STYLE
+// explore MAIN STYLE
 // =============================
 
 
-.marketplace_grid_wrapper {
+.explore_grid_wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -139,7 +139,7 @@
   grid-gap: 5em;
 }
 
-.marketplace_sample_container {
+.explore_sample_container {
   align-self: center;
   justify-self: center;
   position: relative;
@@ -147,7 +147,7 @@
   width: 22vw;
 }
 
-.marketplace_sample_white_container {
+.explore_sample_white_container {
   position: absolute;
   height: 7vw;
   width: 25vw;
@@ -161,22 +161,22 @@
   align-items: center;
 }
 
-.marketplace_sample_detail {
+.explore_sample_detail {
   margin-top: 2.5em;
   text-align: center;
 }
 
-.marketplace_sample_image_container {
+.explore_sample_image_container {
   position: relative;
 }
 
-.marketplace_sample_image {
+.explore_sample_image {
   height: 22vw;
   width: 22vw;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.4);
 }
 
-.marketplace_sample_image_blur {
+.explore_sample_image_blur {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -191,14 +191,14 @@
 }
 
 // =============================
-// MARKETPLACE AUDIO STYLE
+// explore AUDIO STYLE
 // =============================
 
 .hidden_id {
   visibility: hidden;
 }
 
-.marketplace_player_container {
+.explore_player_container {
   width: 20em;
   height: 5em;
   display: flex;
@@ -207,12 +207,12 @@
   align-items: center;
 }
 
-.marketplace_player_item {
+.explore_player_item {
   margin: 0 1em;
   cursor: pointer;
 }
 
-.marketplace_player_play {
+.explore_player_play {
   width: 0em;
   height: 0em;
   border-top: 1em solid transparent;
@@ -220,13 +220,13 @@
   border-left: 1em solid #f0f39c;
 }
 
-.marketplace_player_pause {
+.explore_player_pause {
   width: 1em;
   height: 1em;
   background-color: #f0f39c;
 }
 
-.marketplace_progress_bar_container {
+.explore_progress_bar_container {
   width: 15em;
   progress[value] {
     cursor: pointer;
@@ -246,7 +246,7 @@
   }
 }
 
-.marketplace_seekbar {
+.explore_seekbar {
   width: 14em;
   cursor: pointer;
 }

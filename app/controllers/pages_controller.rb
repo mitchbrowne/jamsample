@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  def marketplace
+  def explore
     @users = User.all
     samples = []
       Sample.all.each do |sample|
