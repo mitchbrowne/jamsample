@@ -92,7 +92,7 @@ $(document).ready(function () {
         });
       };
 
-      // extract all sample_ids from html marketplace page
+      // extract all sample_ids from html explore page
       let $sample_ids = $('.hidden_id').toArray();
 
     // initialise players when page has loaded

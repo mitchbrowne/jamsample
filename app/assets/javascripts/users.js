@@ -51,10 +51,10 @@ $(document).ready(function () {
       if (player.get(0).paused === false) {
         player.get(0).pause();
         isPlaying = false;
-        $(`#play${sample_id}`).removeClass('marketplace_player_pause').addClass('marketplace_player_play');
+        $(`#play${sample_id}`).removeClass('explore_player_pause').addClass('explore_player_play');
       } else {
         player.get(0).play();
-        $(`#play${sample_id}`).removeClass('marketplace_player_play').addClass('marketplace_player_pause');
+        $(`#play${sample_id}`).removeClass('explore_player_play').addClass('explore_player_pause');
         isPlaying = true;
       }
     }
@@ -78,7 +78,7 @@ $(document).ready(function () {
       progressBar.click(seek);
 
       if (player.get(0).currentTime == player.get(0).duration) {
-        $(`#play${sample_id}`).removeClass('marketplace_player_pause').addClass('marketplace_player_play');
+        $(`#play${sample_id}`).removeClass('explore_player_pause').addClass('explore_player_play');
       }
 
       function seek(evt) {
@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
   };
 
-  // extract all sample_ids from html marketplace page
+  // extract all sample_ids from html explore page
   let $sample_ids = $('.hidden_id').toArray();
 
 // initialise players when page has loaded
