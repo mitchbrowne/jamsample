@@ -48,4 +48,4 @@ u2.collections << c2
 puts "Samples and Users"
 u1.samples << s1 << s3
 u2.samples << s2 << s4
-u3.samples << s5 << s6
+u4.samples << s5 << s6
