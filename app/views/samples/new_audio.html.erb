@@ -1,0 +1,28 @@
+<div id="new-audio-sample">
+  <div class="container">
+    <div id="new-audio-sample-row" class="row justify-content-center align-items-center">
+      <div id="new-audio-sample-column" class="col-md-12">
+        <div id="new-audio-sample-box" class="col-md-12">
+          <h1 class="text-center pt-5 new-title">New Sample</h1>
+          <% if flash[:error].present? %>
+            <h2><%= flash[:error] %></h2>
+          <% end %>
+
+          <%= form_for(@sample, :url => url_for(:controller => 'samples', :action => 'create_audio'), :html => {:multipart => true})do |f| %>
+
+            <div class="form-group row">
+              <%= f.label :audio_file, :class => "col-sm-2 col-form-label" %>
+              <div class="col-sm-6">
+                <%= f.cl_upload :audio_file, :required => true, :class => 'form-control' %>
+              </div>
+            </div>
+
+            <%= f.submit 'Upload Audio', :class => 'btn btn-primary' %>
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

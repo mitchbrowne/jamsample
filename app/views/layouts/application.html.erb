@@ -37,7 +37,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <%= link_to "All Users", users_path, :class => 'dropdown-item' if @current_user.admin?%>
                   <%= link_to "New Collection", new_collection_path, :class => 'dropdown-item' %>
-                  <%= link_to "New Sample", new_sample_path, :class => 'dropdown-item' %>
+                  <%= link_to "New Sample", samples_new_audio_path, :class => 'dropdown-item' %>
                   <%= link_to "Profile", user_path(@current_user.id), :class => 'dropdown-item' %>
                   <%= link_to "Settings", edit_user_path(@current_user.id), :class => 'dropdown-item' %>
                   <div class="dropdown-divider"></div>

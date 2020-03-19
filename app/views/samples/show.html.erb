@@ -10,8 +10,8 @@
 
     <div class="sample_detail_container">
       <h1><%= link_to @sample.title, @sample, :class => 'link_to' %></h1>
-      <h2>Artist: <%= link_to @sample.user.name, @sample.user, :class => 'link_to' %></h2>
-      <h3><%= link_to @sample.collection.name, @sample.collection, :class => 'link_to' unless @sample.collection.nil? %></h3>
+      <h3>Artist: <%= link_to @sample.user.name, @sample.user, :class => 'link_to' %></h3>
+      <h4>Collection: <%= link_to @sample.collection.name, @sample.collection, :class => 'link_to' unless @sample.collection.nil? %></h4>
       <p>
         Genre:
         <% @sample.genres.each do |genre| %>
