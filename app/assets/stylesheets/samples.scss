@@ -90,7 +90,7 @@
 }
 
 .progress_bar_container {
-  width: 10em;
+  width: 15em;
   progress[value] {
     -webkit-appearance: none;
     appearance: none;
@@ -110,32 +110,26 @@
 }
 
 .seekbar {
+  width: 15em;
   cursor: pointer;
 }
 
 .start-time {
   position: absolute;
-  left: 6em;
+  left: 5em;
   bottom: 1em;
 }
 
 .end-time {
   position: absolute;
   bottom: 1em;
-  right: 0em;
+  right: -5em;
 }
 
 // =============================
 // MARKETPLACE MAIN STYLE
 // =============================
-//
-// .grid-container {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 0 auto;
-// }
+
 
 .marketplace_grid_wrapper {
   display: grid;
@@ -252,12 +246,49 @@
   }
 }
 
+.marketplace_seekbar {
+  width: 14em;
+  cursor: pointer;
+}
+
 // =============================
 // COLLECTION SHOW
 // =============================
 
+.collection_title_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.collection_title_main {
+  font-size: 4em;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+  text-align: center;
+}
+
+.collection_title_sub {
+  font-size: 1em;
+  text-align: center;
+  margin-top: 0.3em;
+}
+
+.collection_controls_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .collection_controls {
   margin-bottom: 2em;
+}
+
+.collection_controls_link {
+  font-size: 0.8em;
+  margin: 0 1em 0 1em;
 }
 
 .collection_playerOne_container {
@@ -266,6 +297,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.collection_show_hr {
+  margin: 0 25em;
+  border: 1px solid rgba(0,0,0,0.7);
+  box-shadow: 0em 0.3em 0.3em rgba(0,0,0, 0.2);
+}
+
+.collection_controls {
+  display: block;
+  margin: auto;
 }
 
 // =============================
@@ -280,6 +322,12 @@
 
 .user_show_collection_title {
   margin-top: 3em;
+}
+
+.user_show_hr {
+  border: 0.2em solid rgba(0,0,0,0.7);
+  margin: 0 -4em;
+  box-shadow: 0em 0.3em 0.3em rgba(0,0,0, 0.2);
 }
 
 .user_show_collection_hr {
