@@ -19,7 +19,7 @@ $(document).ready(function () {
       current_seconds_long = currentTime % 60,
       current_seconds = current_seconds_long.toFixed(),
       current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
-
+      console.log("users");
     return current_time;
   };
 
