@@ -56,7 +56,7 @@
 
     <div id="audio_wrapper<%= sample.id %>">
       <audio id="player<%= sample.id %>">
-        <source src="<%= sample.audio_file %>" type="audio/mp3">
+        <source src="<%= cloudinary_url(sample.audio_file, :resource_type=>"video") %>" type="audio/mp3">
       </audio>
     </div>
 

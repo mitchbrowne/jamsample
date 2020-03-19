@@ -14,16 +14,16 @@
   <div class="form-group row">
     <%= f.label :audio_file, :class => "col-sm-2 col-form-label" %>
     <div class="col-sm-6">
-      <%= f.url_field :audio_file, :required => true, :class => 'form-control' %>
+      <%= f.cl_upload :audio_file, :required => true, :class => 'form-control' %>
     </div>
   </div>
 
-  <div class="form-group row">
+  <!-- <div class="form-group row">
     <%= f.label :image, :class => "col-sm-2 col-form-label" %>
     <div class="col-sm-6">
       <%= f.cl_image_upload :image, :class => 'form-control-file' %>
     </div>
-  </div>
+  </div> -->
 
   <div class="form-group row">
     <%= f.label :sample_type, :class => "col-sm-2 col-form-label" %>

@@ -12,6 +12,7 @@ class SamplesController < ApplicationController
   end
 
   def create
+    # raise "hell"
     @genres = Genre.all
     @collections = @current_user.collections
 
@@ -22,9 +23,14 @@ class SamplesController < ApplicationController
       render :new
     else
       if params[:file].present?
-        req = Cloudinary::Uploader.upload(params[:file])
-        @sample.image = req["public_id"]
+        req = Cloudinary::Uploader.upload(params[:file],
+        :resource_type => :video)
+        @sample.audio_file = req["public_id"]
       end
+      # if params[:file].present?
+      #   req = Cloudinary::Uploader.upload(params[:file])
+      #   @sample.image = req["public_id"]
+      # end
       @sample.save
       @current_user.samples << @sample
       redirect_to sample_path(@sample)
@@ -75,6 +81,6 @@ class SamplesController < ApplicationController
 
   private
   def sample_params
-    params.require(:sample).permit(:title, :audio_file, :sample_type, :collection_id, :genre_ids)
+    params.require(:sample).permit(:title, :sample_type, :collection_id, :genre_ids)
   end
 end
