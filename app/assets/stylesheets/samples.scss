@@ -134,6 +134,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
+  margin-top: 5em;
   grid-gap: 5em;
 }
 
@@ -193,6 +194,7 @@
 
 .hidden_id {
   visibility: hidden;
+  display: none;
 }
 
 .explore_player_container {
