@@ -1,6 +1,5 @@
 $(document).ready(function () {
   if ($('.collections.show').length === 0) return;
-    console.log("Welcome to add samples inside collections controller");
 
     function calculateTotalValue(length) {
       var minutes = Math.floor(length / 60),
@@ -19,7 +18,6 @@ $(document).ready(function () {
         current_seconds = current_seconds_long.toFixed(),
         current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
 
-      console.log("collections");
       return current_time;
     };
 
@@ -29,75 +27,71 @@ $(document).ready(function () {
       }
     };
 
-      function initPlayer(sample_id) {
+    function initPlayer(sample_id) {
 
-        console.log(sample_id);
+      //VARIABLES
+      let playerContainer = $(`#audio_wrapper${sample_id}`);
+      let player = $(`#player${sample_id}`);
+      let isPlaying = false;
+      let playButton = $(`#play${sample_id}`);
 
-        //VARIABLES
-        let playerContainer = $(`#audio_wrapper${sample_id}`);
-        let player = $(`#player${sample_id}`);
-        let isPlaying = false;
-        let playButton = $(`#play${sample_id}`);
-
-        //CONTROL LISTENERS
-        if (playButton != null) {
-          playButton.click(function() {
-            togglePlay()
-          });
-        };
-
-        //CONTROLS & SOUNDS METHODS
-        function togglePlay() {
-          if (player.get(0).paused === false) {
-            player.get(0).pause();
-            isPlaying = false;
-            $(`#play${sample_id}`).removeClass('player_pause').addClass('player_play');
-          } else {
-            player.get(0).play();
-            $(`#play${sample_id}`).removeClass('player_play').addClass('player_pause');
-            isPlaying = true;
-          }
-        }
-
-        //PROGRESS BAR ONTIMEUPDATE
-        function initProgressBar() {
-          let length = player.get(0).duration;
-          let current_time = player.get(0).currentTime;
-
-          //calculate total length of value
-          let totalLength = calculateTotalValue(length);
-          $('.end-time').html(totalLength);
-
-          //calculate current value time
-          currentTime = calculateCurrentValue(current_time);
-          $('.start-time').html(currentTime);
-
-          let progressBar = $(`#seekbar${sample_id}`);
-          progressBar.attr('value', player.get(0).currentTime / player.get(0).duration);
-          progressBar.click(seek);
-
-          if (player.get(0).currentTime == player.get(0).duration) {
-            $(`#play${sample_id}`).removeClass('player_pause').addClass('player_play');
-          }
-
-          function seek(evt) {
-            let percent = evt.offsetX / this.offsetWidth;
-            player.get(0).currentTime = percent * player.get(0).duration;
-            progressBar.value = percent / 100;
-          };
-
-        };
-
-        player.on('timeupdate', function() {
-          initProgressBar();
+      //CONTROL LISTENERS
+      if (playButton != null) {
+        playButton.click(function() {
+          togglePlay()
         });
       };
 
-      // extract all sample_ids from html explore page
-      let $sample_ids = $('.hidden_id').toArray();
+      //CONTROLS & SOUNDS METHODS
+      function togglePlay() {
+        if (player.get(0).paused === false) {
+          player.get(0).pause();
+          isPlaying = false;
+          $(`#play${sample_id}`).removeClass('player_pause').addClass('player_play');
+        } else {
+          player.get(0).play();
+          $(`#play${sample_id}`).removeClass('player_play').addClass('player_pause');
+          isPlaying = true;
+        }
+      }
+
+      //PROGRESS BAR ONTIMEUPDATE
+      function initProgressBar() {
+        let length = player.get(0).duration;
+        let current_time = player.get(0).currentTime;
+
+        //calculate total length of value
+        let totalLength = calculateTotalValue(length);
+        $('.end-time').html(totalLength);
+
+        //calculate current value time
+        currentTime = calculateCurrentValue(current_time);
+        $('.start-time').html(currentTime);
+
+        let progressBar = $(`#seekbar${sample_id}`);
+        progressBar.attr('value', player.get(0).currentTime / player.get(0).duration);
+        progressBar.click(seek);
+
+        if (player.get(0).currentTime == player.get(0).duration) {
+          $(`#play${sample_id}`).removeClass('player_pause').addClass('player_play');
+        }
+
+        function seek(evt) {
+          let percent = evt.offsetX / this.offsetWidth;
+          player.get(0).currentTime = percent * player.get(0).duration;
+          progressBar.value = percent / 100;
+        };
+      };
+
+      player.on('timeupdate', function() {
+        initProgressBar();
+      });
+    };
+
+    // extract all sample_ids from html explore page
+    let $sample_ids = $('.hidden_id').toArray();
 
     // initialise players when page has loaded
       initPlayers();
-
 
 });

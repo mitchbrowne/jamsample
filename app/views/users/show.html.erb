@@ -4,75 +4,71 @@
   <h1 class="user_show_collection_title">Samples</h1>
   <h6><%= link_to "New Sample", samples_new_audio_path, :class => 'link_to' unless @user != @current_user %></h6>
 </div>
-<hr class="user_show_hr">
 
+<hr class="user_show_hr">
 
 <% @samples.each do |sample| %>
   <div class="hidden_id"><%= sample.id %></div>
 <% end %>
 
 <% if @samples.empty? %>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
   <h5>You have no samples. <%= link_to "Add sample", samples_new_audio_path, :class => 'link_to' %>?</h5>
 <% else %>
-<div class="explore_grid_wrapper">
-  <% @samples.each do |sample| %>
-
-  <div class="explore_sample_container">
-    <div class="explore_sample_white_container">
-      <p class="explore_sample_detail"><%= link_to sample.title, sample, :class => 'link_to' %></p>
-
-    </div>
-    <div class="explore_sample_image_container">
-      <%= link_to cl_image_tag(sample.image, :class => 'explore_sample_image', :alt => "#{sample.title}"), sample %>
-      <div class="explore_sample_image_blur">
-        <div class="explore_player_container">
-          <div class="player_controls_container">
-            <div id="play<%= sample.id %>" class="explore_player_item explore_player_play"></div>
-          </div>
-
-          <div id="audio_wrapper<%= sample.id %>">
-            <audio id="player<%= sample.id %>">
-              <source src="<%= cloudinary_url(sample.audio_file, :resource_type=>"video") %>" type="audio/mp3">
-            </audio>
-          </div>
-
-          <div class="explore_progress_bar_container">
-            <progress id="seekbar<%= sample.id %>" value="0" max="1"></progress>
-          </div>
+  <div class="explore_grid_wrapper">
+    <% @samples.each do |sample| %>
+      <div class="explore_sample_container">
+        <div class="explore_sample_white_container">
+          <p class="explore_sample_detail"><%= link_to sample.title, sample, :class => 'link_to' %></p>
         </div>
 
-      </div>
-    </div>
-  </div>
+        <div class="explore_sample_image_container">
+          <%= link_to cl_image_tag(sample.image, :class => 'explore_sample_image', :alt => "#{sample.title}"), sample %>
+          <div class="explore_sample_image_blur">
+            <div class="explore_player_container">
+              <div class="player_controls_container">
+                <div id="play<%= sample.id %>" class="explore_player_item explore_player_play"></div>
+              </div>
 
-<% end %>
-</div>
+              <div id="audio_wrapper<%= sample.id %>">
+                <audio id="player<%= sample.id %>">
+                  <source src="<%= cloudinary_url(sample.audio_file, :resource_type=>"video") %>" type="audio/mp3">
+                </audio>
+              </div>
+
+              <div class="explore_progress_bar_container">
+                <progress id="seekbar<%= sample.id %>" value="0" max="1"></progress>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
 <div class="title_section_container">
   <h1 class="user_show_collection_title">Collections</h1>
   <h6><%= link_to "New Collection", new_collection_path, :class => 'link_to' unless @user != @current_user %></h6>
 </div>
+
 <hr class="user_show_collection_hr user_show_hr">
 
 <% if @collections.empty? %>
   <h5>You have no collections. <%= link_to "Add collection", new_collection_path, :class => 'link_to' %>?</h5>
 <% else %>
-<div class="explore_grid_wrapper">
-  <% @collections.each do |collection| %>
-
-  <div class="explore_sample_container">
-    <div class="explore_sample_white_container">
-      <p class="explore_sample_detail"><%= link_to collection.name, collection, :class => 'link_to' %></p>
-
-    </div>
-    <div class="explore_sample_image_container">
-      <%= link_to cl_image_tag(collection.image, :class => 'explore_sample_image', :alt => "#{collection.name} image"), collection %>
-    </div>
+  <div class="explore_grid_wrapper">
+    <% @collections.each do |collection| %>
+      <div class="explore_sample_container">
+        <div class="explore_sample_white_container">
+          <p class="explore_sample_detail"><%= link_to collection.name, collection, :class => 'link_to' %></p>
+        </div>
+        <div class="explore_sample_image_container">
+          <%= link_to cl_image_tag(collection.image, :class => 'explore_sample_image', :alt => "#{collection.name} image"), collection %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
 <% end %>

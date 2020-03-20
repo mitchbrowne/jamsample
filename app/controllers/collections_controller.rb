@@ -18,6 +18,7 @@ class CollectionsController < ApplicationController
         req = Cloudinary::Uploader.upload(params[:file])
         @collection.image = req["public_id"]
       end
+
       @current_user.collections << @collection
       @collection.samples = []
       unless params[:collection][:sample_ids].nil?
@@ -25,6 +26,7 @@ class CollectionsController < ApplicationController
           @collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
         end
       end
+
       @collection.save
       redirect_to collection_path(@collection)
     end
@@ -34,7 +36,6 @@ class CollectionsController < ApplicationController
     @collection = Collection.find params[:id]
     samples = @collection.samples.order(:created_at)
     @samples = samples.reverse
-
   end
 
   def index
@@ -59,12 +60,14 @@ class CollectionsController < ApplicationController
         req = Cloudinary::Uploader.upload(params[:file])
         @collection.image = req["public_id"]
       end
+
       @collection.samples = []
       unless params[:collection][:sample_ids].nil?
         params[:collection][:sample_ids].each do |sample_id|
           @collection.samples << Sample.find(sample_id) unless sample_id.empty? || @current_user.sample_ids.include?(sample_id)
         end
       end
+
       @collection.update collection_params
       redirect_to collection_path
     end
@@ -73,6 +76,7 @@ class CollectionsController < ApplicationController
   def destroy
     collection = Collection.find params[:id]
     user = collection.user
+    
     if collection.samples.present?
       flash[:error] = "Cannot delete collection if collection holds samples."
       redirect_to collection_path

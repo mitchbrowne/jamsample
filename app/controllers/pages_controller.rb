@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def explore
-    # another way of sorting
+    # another way of sorting:
     # @samples = @current_user.samples.order(:created_at)
     @users = User.all
     samples = []

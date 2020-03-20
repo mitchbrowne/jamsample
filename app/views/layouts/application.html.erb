@@ -4,6 +4,7 @@
     <title>Jamsample</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= cloudinary_js_config %>
@@ -15,51 +16,50 @@
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light">
         <%= link_to "Jamsample", root_path, :class => 'navbar-brand navbar-title jampsample_title' %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
         </button>
 
         <% if @current_user.present? %>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link_to "Explore", root_path, :class => 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My Profile", user_path(@current_user.id), :class => 'nav-link' %>
-          </li>
-        </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to "Explore", root_path, :class => 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "My Profile", user_path(@current_user.id), :class => 'nav-link' %>
+            </li>
+          </ul>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav w-100">
-              <li class="nav-item dropdown ml-auto">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= @current_user.name %>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <%= link_to "All Users", users_path, :class => 'dropdown-item' if @current_user.admin?%>
-                  <%= link_to "New Collection", new_collection_path, :class => 'dropdown-item' %>
-                  <%= link_to "New Sample", samples_new_audio_path, :class => 'dropdown-item' %>
-                  <%= link_to "Profile", user_path(@current_user.id), :class => 'dropdown-item' %>
-                  <%= link_to "Settings", edit_user_path(@current_user.id), :class => 'dropdown-item' %>
-                  <div class="dropdown-divider"></div>
-                  <%= link_to "Sign Out #{ @current_user.name }", login_path, :method => 'delete', :class => 'dropdown-item' %>
-                </div>
-              </li>
+            <li class="nav-item dropdown ml-auto">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= @current_user.name %>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "All Users", users_path, :class => 'dropdown-item' if @current_user.admin?%>
+                <%= link_to "New Collection", new_collection_path, :class => 'dropdown-item' %>
+                <%= link_to "New Sample", samples_new_audio_path, :class => 'dropdown-item' %>
+                <%= link_to "Profile", user_path(@current_user.id), :class => 'dropdown-item' %>
+                <%= link_to "Settings", edit_user_path(@current_user.id), :class => 'dropdown-item' %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Sign Out #{ @current_user.name }", login_path, :method => 'delete', :class => 'dropdown-item' %>
+              </div>
+            </li>
           </ul>
         </div>
 
-
         <% else %>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link_to "Sign Up", new_user_path, :class => 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Sign In", login_path, :class => 'nav-link' %>
-          </li>
-        </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to "Sign Up", new_user_path, :class => 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign In", login_path, :class => 'nav-link' %>
+            </li>
+          </ul>
         <% end %>
       </nav>
     </div>
+    
     <div class="container">
       <%= yield %>
     </div>

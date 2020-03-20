@@ -1,8 +1,6 @@
 $(document).ready(function () {
   if ($('.pages.explore').length === 0) return;
 
-  console.log("welcome");
-
   function calculateTotalValue(length) {
     var minutes = Math.floor(length / 60),
       seconds_int = length - minutes * 60,
@@ -19,7 +17,7 @@ $(document).ready(function () {
       current_seconds_long = currentTime % 60,
       current_seconds = current_seconds_long.toFixed(),
       current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
-      console.log("pages");
+
     return current_time;
   };
 
@@ -30,8 +28,6 @@ $(document).ready(function () {
   };
 
   function initPlayer(sample_id) {
-
-    console.log(sample_id);
 
     //VARIABLES
     let playerContainer = $(`#audio_wrapper${sample_id}`);
@@ -74,7 +70,6 @@ $(document).ready(function () {
 
       let progressBar = $(`#seekbar${sample_id}`);
       progressBar.attr('value', player.get(0).currentTime / player.get(0).duration);
-      console.log(progressBar.value)
       progressBar.click(seek);
 
       if (player.get(0).currentTime == player.get(0).duration) {
@@ -97,9 +92,7 @@ $(document).ready(function () {
   // extract all sample_ids from html explore page
   let $sample_ids = $('.hidden_id').toArray();
 
-// initialise players when page has loaded
+  // initialise players when page has loaded
   initPlayers();
-
-
 
 });

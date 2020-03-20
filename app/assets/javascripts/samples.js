@@ -17,7 +17,7 @@ $(document).ready(function () {
       current_seconds_long = currentTime % 60,
       current_seconds = current_seconds_long.toFixed(),
       current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
-      console.log("samples");
+
     return current_time;
   };
 
@@ -28,8 +28,6 @@ $(document).ready(function () {
   };
 
   function initPlayer(sample_id) {
-
-    console.log(sample_id);
 
     //VARIABLES
     let playerContainer = $(`#audio_wrapper${sample_id}`);
@@ -94,7 +92,7 @@ $(document).ready(function () {
   // extract all sample_ids from html explore page
   let $sample_ids = $('.hidden_id').toArray();
 
-// initialise players when page has loaded
+  // initialise players when page has loaded
   initPlayers();
 
 });

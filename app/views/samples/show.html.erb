@@ -1,8 +1,6 @@
 <div class="hidden_id"><%= @sample.id %></div>
 
-
 <div class="sample_playerOne_container">
-
   <div class="sample_container">
     <div class="sample_image_container">
       <%= cl_image_tag(@sample.image, :class => 'sample_image', :alt => "#{@sample.title} cover image") %>
@@ -12,40 +10,37 @@
       <h1><%= link_to @sample.title, @sample, :class => 'link_to' %></h1>
       <h3>Artist: <%= link_to @sample.user.name, @sample.user, :class => 'link_to' %></h3>
       <h4>Collection: <%= link_to @sample.collection.name, @sample.collection, :class => 'link_to' unless @sample.collection.nil? %></h4>
-      <p>
-        Genre:
+      <p>Genre:
         <% @sample.genres.each do |genre| %>
           <%= genre.name %>
         <% end %>
       </p>
       <p>Created At: <%= @sample.created_at.strftime '%l:%M %P, %B %e, %Y' %></p>
+
       <div class="sample_controls">
         <%= link_to "Edit Sample", edit_sample_path(@sample), :class => "sample_control_link link_to" if @current_user.samples.include?(@sample)%> |
         <%= link_to "Delete Sample", @sample, :class => "sample_control_link link_to", :method => 'delete' if @current_user.samples.include?(@sample)%>
       </div>
-
     </div>
 
 <!-- AUDIO BEGINS -->
 
-  <div class="player_container">
-    <div class="player_controls_container">
-      <div id="play<%= @sample.id %>" class="player_item player_play"></div>
-    </div>
+    <div class="player_container">
+      <div class="player_controls_container">
+        <div id="play<%= @sample.id %>" class="player_item player_play"></div>
+      </div>
 
-    <div id="audio_wrapper<%= @sample.id %>">
-      <audio id="player<%= @sample.id %>">
-        <source src="<%= cloudinary_url(@sample.audio_file, :resource_type=>"video") %>" type="audio/mp3">
-      </audio>
-    </div>
+      <div id="audio_wrapper<%= @sample.id %>">
+        <audio id="player<%= @sample.id %>">
+          <source src="<%= cloudinary_url(@sample.audio_file, :resource_type=>"video") %>" type="audio/mp3">
+        </audio>
+      </div>
 
-    <div class="progress_bar_container">
-      <progress class="seekbar" id="seekbar<%= @sample.id %>" value="0" max="1"></progress>
-      <small class="start-time"></small>
-      <small class="end-time"></small>
+      <div class="progress_bar_container">
+        <progress class="seekbar" id="seekbar<%= @sample.id %>" value="0" max="1"></progress>
+        <small class="start-time"></small>
+        <small class="end-time"></small>
+      </div>
     </div>
   </div>
-
-  </div>
-
 </div>

@@ -1,9 +1,1 @@
 <!-- PAGE NOT ACCESSIBLE TO USER -->
-
-<h1>Your Collections</h1>
-
-<% @collections.each do |collection| %>
-  <p><%= link_to collection.name, collection_path(collection.id) %></p>
-<% end %>
-
-<%= link_to "Add Collection", new_collection_path %>

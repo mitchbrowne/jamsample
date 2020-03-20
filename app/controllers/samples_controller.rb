@@ -18,23 +18,21 @@ class SamplesController < ApplicationController
       :resource_type => :video)
       @sample.audio_file = req["public_id"]
     end
+
     @sample.save
     @current_user.samples << @sample
-
     redirect_to new_sample_path
   end
 
   def new
     @genres = Genre.all
     @collections = @current_user.collections
-
     @sample = @current_user.samples.last
   end
 
   def create
     @genres = Genre.all
     @collections = @current_user.collections
-
     @sample = Sample.find params[:id]
     @sample = Sample.update sample_params
 
@@ -46,6 +44,7 @@ class SamplesController < ApplicationController
         req = Cloudinary::Uploader.upload(params[:file])
         @sample.image = req["public_id"]
       end
+
       @sample.save
       @current_user.samples << @sample
       redirect_to sample_path(@sample)
@@ -66,7 +65,6 @@ class SamplesController < ApplicationController
     @sample = Sample.find params[:id]
     @collections = @current_user.collections
 
-
     if @current_user.samples.exists?(:title => sample_params[:title]) && @sample.title != sample_params[:title]
       flash.now[:error] = "Title already exists."
       render :edit
@@ -76,14 +74,15 @@ class SamplesController < ApplicationController
         req = Cloudinary::Uploader.upload(params[:file])
         @sample.image = req["public_id"]
       end
+
       @sample.genres = []
       unless params[:sample][:genre_ids].nil?
         params[:sample][:genre_ids].each do |genre_id|
           @sample.genres << Genre.find(genre_id) unless genre_id.empty?
         end
       end
-      @sample.save
 
+      @sample.save
       redirect_to sample_path
     end
   end

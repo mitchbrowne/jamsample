@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
@@ -21,17 +22,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+
     collections = []
-      @user.collections.each do |collection|
-        collections.append(collection)
-      end
+    @user.collections.each do |collection|
+      collections.append(collection)
+    end
+
     collections.sort_by! {|collection| collection.updated_at}
     @collections = collections.reverse!
 
     samples = []
-      @user.samples.each do |sample|
-        samples.append(sample)
-      end
+    @user.samples.each do |sample|
+      samples.append(sample)
+    end
+    
     samples.sort_by! {|sample| sample.updated_at}
     @samples = samples.reverse!
   end
