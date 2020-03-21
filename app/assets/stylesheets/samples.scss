@@ -7,19 +7,19 @@
 // =============================
 
 .sample_playerOne_container {
-  margin-top: 5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	margin-top: 5em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .sample_container {
-  position: relative;
-  height: 30em;
-  width: 50em;
-  background-color: white;
-  box-shadow: 0 15px 23px rgba(0,0,0, 0.2);
+	position: relative;
+	height: 30em;
+	width: 50em;
+	background-color: white;
+	box-shadow: 0 15px 23px rgba(0, 0, 0, 0.2);
 }
 
 // =============================
@@ -27,29 +27,29 @@
 // =============================
 
 .sample_image_container {
-  height: 26em;
-  width: 26em;
-  position: absolute;
-  top: 6%;
-  right: -20%;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.4);
+	height: 26em;
+	width: 26em;
+	position: absolute;
+	top: 6%;
+	right: -20%;
+	// box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
 .sample_image {
-  height: inherit;
-  position: relative;
-  width: inherit;
+	height: inherit;
+	position: relative;
+	width: inherit;
 }
 
 .sample_detail_container {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width:27em;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 27em;
 }
 
 .sample_control_link {
-  font-size: 0.8em;
+	font-size: 0.8em;
 }
 
 // =============================
@@ -57,72 +57,72 @@
 // =============================
 
 .player_container {
-  width: 15em;
-  height: 5em;
-  position: absolute;
-  bottom: 10%;
-  left: 10%;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: center;
+	width: 15em;
+	height: 5em;
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .player_item {
-  height: 3em;
-  width: 3em;
-  margin: 0 1em;
-  cursor: pointer;
+	height: 3em;
+	width: 3em;
+	margin: 0 1em;
+	cursor: pointer;
 }
 
 .player_play {
-  width: 0em;
-  height: 0em;
-  border-top: 2em solid transparent;
-  border-bottom: 2em solid transparent;
-  border-left: 2em solid #f0f39c;
+	width: 0em;
+	height: 0em;
+	border-top: 2em solid transparent;
+	border-bottom: 2em solid transparent;
+	border-left: 2em solid #f0f39c;
 }
 
 .player_pause {
-  width: 2em;
-  height: 2em;
-  background-color: #f0f39c;
+	width: 2em;
+	height: 2em;
+	background-color: #f0f39c;
 }
 
 .progress_bar_container {
-  width: 15em;
-  progress[value] {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: white;
-    color: #f0f39c;
-    height: 0.4em;;
-  }
-  progress[value]::-webkit-progress-bar {
-    background-color: white;
-    border: 1px solid lighten(#acacac, 20%);
-    color: #f0f39c;
-  }
-  progress::-webkit-progress-value {
-    background-color: #f0f39c;
-  }
+	width: 15em;
+	progress[value] {
+		-webkit-appearance: none;
+		appearance: none;
+		background-color: white;
+		color: #f0f39c;
+		height: 0.4em;
+	}
+	progress[value]::-webkit-progress-bar {
+		background-color: white;
+		border: 1px solid lighten(#acacac, 20%);
+		color: #f0f39c;
+	}
+	progress::-webkit-progress-value {
+		background-color: #f0f39c;
+	}
 }
 
 .seekbar {
-  width: 15em;
-  cursor: pointer;
+	width: 15em;
+	cursor: pointer;
 }
 
 .start-time {
-  position: absolute;
-  left: 5em;
-  bottom: 1em;
+	position: absolute;
+	left: 5em;
+	bottom: 1em;
 }
 
 .end-time {
-  position: absolute;
-  bottom: 1em;
-  right: -5em;
+	position: absolute;
+	bottom: 1em;
+	right: -5em;
 }
 
 // =============================
@@ -130,62 +130,62 @@
 // =============================
 
 .explore_grid_wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  justify-content: center;
-  margin-top: 5em;
-  grid-gap: 5em;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	justify-content: center;
+	margin-top: 5em;
+	grid-gap: 5em;
 }
 
 .explore_sample_container {
-  align-self: center;
-  justify-self: center;
-  position: relative;
-  height: 28vw;
-  width: 22vw;
+	align-self: center;
+	justify-self: center;
+	position: relative;
+	height: 28vw;
+	width: 22vw;
 }
 
 .explore_sample_white_container {
-  position: absolute;
-  height: 7vw;
-  width: 25vw;
-  bottom: 3%;
-  left: -6%;
-  background-color: white;
-  box-shadow: 0 15px 23px rgba(0,0,0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	position: absolute;
+	height: 7vw;
+	width: 25vw;
+	bottom: 3%;
+	left: -6%;
+	background-color: white;
+	box-shadow: 0 15px 23px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .explore_sample_detail {
-  margin-top: 2.5em;
-  text-align: center;
+	margin-top: 2.5em;
+	text-align: center;
 }
 
 .explore_sample_image_container {
-  position: relative;
+	position: relative;
 }
 
 .explore_sample_image {
-  height: 22vw;
-  width: 22vw;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0, 0.4);
+	height: 22vw;
+	width: 22vw;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
 .explore_sample_image_blur {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 10vh;
-  width: 22vw;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 10vh;
+	width: 22vw;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 // =============================
@@ -193,61 +193,61 @@
 // =============================
 
 .hidden_id {
-  visibility: hidden;
-  display: none;
+	visibility: hidden;
+	display: none;
 }
 
 .explore_player_container {
-  width: 20em;
-  height: 5em;
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
+	width: 20em;
+	height: 5em;
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .explore_player_item {
-  margin: 0 1em;
-  cursor: pointer;
+	margin: 0 1em;
+	cursor: pointer;
 }
 
 .explore_player_play {
-  width: 0em;
-  height: 0em;
-  border-top: 1em solid transparent;
-  border-bottom: 1em solid transparent;
-  border-left: 1em solid #f0f39c;
+	width: 0em;
+	height: 0em;
+	border-top: 1em solid transparent;
+	border-bottom: 1em solid transparent;
+	border-left: 1em solid #f0f39c;
 }
 
 .explore_player_pause {
-  width: 1em;
-  height: 1em;
-  background-color: #f0f39c;
+	width: 1em;
+	height: 1em;
+	background-color: #f0f39c;
 }
 
 .explore_progress_bar_container {
-  width: 15em;
-  progress[value] {
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: white;
-    color: #f0f39c;
-    height: 0.4em;;
-  }
-  progress[value]::-webkit-progress-bar {
-    background-color: white;
-    border: 1px solid lighten(#acacac, 20%);
-    color: #f0f39c;
-  }
-  progress::-webkit-progress-value {
-    background-color: #f0f39c;
-  }
+	width: 15em;
+	progress[value] {
+		cursor: pointer;
+		-webkit-appearance: none;
+		appearance: none;
+		background-color: white;
+		color: #f0f39c;
+		height: 0.4em;
+	}
+	progress[value]::-webkit-progress-bar {
+		background-color: white;
+		border: 1px solid lighten(#acacac, 20%);
+		color: #f0f39c;
+	}
+	progress::-webkit-progress-value {
+		background-color: #f0f39c;
+	}
 }
 
 .explore_seekbar {
-  width: 14em;
-  cursor: pointer;
+	width: 14em;
+	cursor: pointer;
 }
 
 // =============================
@@ -255,67 +255,66 @@
 // =============================
 
 .collection_title_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .collection_title_main {
-  font-size: 4em;
-  margin-top: 0.5em;
-  margin-bottom: 0.3em;
-  text-align: center;
+	font-size: 4em;
+	margin-top: 0.5em;
+	margin-bottom: 0.3em;
+	text-align: center;
 }
 
 .collection_title_sub {
-  font-size: 1em;
-  text-align: center;
-  margin-top: 0.3em;
+	font-size: 1em;
+	text-align: center;
+	margin-top: 0.3em;
 }
 
 .collection_show_image {
-  width: 60vh;
-  display: block;
-  margin: 3em auto;
-  box-shadow: 0em 0.3em 0.3em rgba(0,0,0, 0.2);
-
+	width: 60vh;
+	display: block;
+	margin: 3em auto;
+	box-shadow: 0em 0.3em 0.3em rgba(0, 0, 0, 0.2);
 }
 
 .collection_controls_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5em;
 }
 
 .collection_controls {
-  margin-bottom: 2em;
+	margin-bottom: 2em;
 }
 
 .collection_controls_link {
-  font-size: 0.8em;
-  margin: 0 1em 0 1em;
+	font-size: 0.8em;
+	margin: 0 1em 0 1em;
 }
 
 .collection_playerOne_container {
-  margin-bottom: 10em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	margin-bottom: 10em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .collection_show_hr {
-  margin: 0 25em;
-  border: 1px solid rgba(0,0,0,0.7);
-  box-shadow: 0em 0.3em 0.3em rgba(0,0,0, 0.2);
+	margin: 0 25em;
+	border: 1px solid rgba(0, 0, 0, 0.7);
+	box-shadow: 0em 0.3em 0.3em rgba(0, 0, 0, 0.2);
 }
 
 .collection_controls {
-  display: block;
-  margin: auto;
+	display: block;
+	margin: auto;
 }
 
 // =============================
@@ -323,33 +322,32 @@
 // =============================
 
 .user_main_title {
-  font-size: 5em;
-  margin-top: 0.5em;
-  text-align: center;
+	font-size: 5em;
+	margin-top: 0.5em;
+	text-align: center;
 }
 
 .user_show_collection_title {
-
 }
 
 .user_show_hr {
-  border: 0.2em solid rgba(0,0,0,0.7);
-  margin: 0 -4em;
-  box-shadow: 0em 0.3em 0.3em rgba(0,0,0, 0.2);
+	border: 0.2em solid rgba(0, 0, 0, 0.7);
+	margin: 0 -4em;
+	box-shadow: 0em 0.3em 0.3em rgba(0, 0, 0, 0.2);
 }
 
 .user_show_collection_hr {
-  border: 0.2em solid rgba(0,0,0,0.7);
-  margin-bottom: 4em;
-  box-shadow: 0em 0.3em 0.3em rgba(0,0,0, 0.2);
+	border: 0.2em solid rgba(0, 0, 0, 0.7);
+	margin-bottom: 4em;
+	box-shadow: 0em 0.3em 0.3em rgba(0, 0, 0, 0.2);
 }
 
 .title_section_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 7em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 7em;
 }
 
 // =============================
@@ -357,10 +355,10 @@
 // =============================
 
 .new_container {
-  display: block;
-  margin: 0 auto;
+	display: block;
+	margin: 0 auto;
 }
 
 .new-title {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
