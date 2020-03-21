@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_011015) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "image", default: "default_collection_image"
+    t.text "image", default: "https://previews.123rf.com/images/vladwel/vladwel1605/vladwel160500181/57404563-vinyl-record-vector-icon-compact-cd-disk-dvd-disc-gramophone-record-symbol-rotating-record-disc-flat.jpg"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_011015) do
   create_table "samples", force: :cascade do |t|
     t.text "title"
     t.text "audio_file"
-    t.text "image", default: "default_sample_image"
+    t.text "image", default: "https://st.depositphotos.com/1742172/2007/v/950/depositphotos_20077185-stock-illustration-cartoon-music-note.jpg"
     t.text "sample_type"
     t.integer "collection_id"
     t.datetime "created_at", null: false
